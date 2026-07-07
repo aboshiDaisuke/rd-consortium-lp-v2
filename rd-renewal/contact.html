@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>お問い合わせ | R&D コンソーシアム</title>
+    <meta name="description" content="R&D コンソーシアムへのお問い合わせページ。プロジェクト相談・参画応募・その他のご質問を受け付けています。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=Shippori+Mincho:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="motion-bg" aria-hidden="true">
+      <div class="motion-tunnel"></div>
+      <div class="wire wire-a"><div class="cube"><span class="f f1"></span><span class="f f2"></span><span class="f f3"></span><span class="f f4"></span><span class="f f5"></span><span class="f f6"></span></div></div>
+      <div class="wire wire-b"><div class="cube"><span class="f f1"></span><span class="f f2"></span><span class="f f3"></span><span class="f f4"></span><span class="f f5"></span><span class="f f6"></span></div></div>
+      <div class="wire wire-c"><div class="cube"><span class="f f1"></span><span class="f f2"></span><span class="f f3"></span><span class="f f4"></span><span class="f f5"></span><span class="f f6"></span></div></div>
+    </div>
+
+    <a class="skip-link" href="#main">本文へスキップ</a>
+
+    <header class="site-header">
+      <div class="header-meta" aria-label="補助リンク">
+        <a href="investor.html">投資企業の方</a>
+        <a href="engineer.html">エンジニアの方</a>
+        <a href="faq.html">よくある質問</a>
+        <a href="company.html">法人情報</a>
+        <a href="contact.html" aria-current="page">お問い合わせ</a>
+      </div>
+      <div class="header-main">
+        <a class="brand" href="index.html" aria-label="R&D コンソーシアム トップ">
+          <span class="brand-mark">R&D</span><span class="brand-city">コンソーシアム</span>
+        </a>
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="global-nav">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="global-nav" class="global-nav" aria-label="グローバルナビゲーション">
+          <a href="index.html">トップ</a>
+          <a href="index.html#concept">基本コンセプト</a>
+          <a href="index.html#features">事業の強み</a>
+          <a href="engineer.html">エンジニアの方</a>
+          <a href="investor.html">投資企業の方</a>
+          <a href="faq.html">よくある質問</a>
+        </nav>
+      </div>
+    </header>
+
+    <aside class="side-cta" aria-label="固定リンク">
+      <a class="side-cta-primary" href="engineer.html">エンジニア<br>応募</a>
+      <a href="investor.html">投資企業<br>相談</a>
+      <a href="contact.html">お問い合わせ</a>
+    </aside>
+
+    <main id="main">
+      <div class="page-hero">
+        <p class="breadcrumb"><a href="index.html">トップ</a> / お問い合わせ</p>
+        <p class="page-hero-eyebrow">Contact<span class="jp">お問い合わせ</span></p>
+        <h1>プロジェクト相談・参画応募</h1>
+        <p>エンジニアとして参加したい方、投資企業として相談したい方は、目的に合わせてお問い合わせください。</p>
+      </div>
+
+      <section class="section reveal">
+        <div class="contact-panel">
+          <div>
+            <small>Contact</small>
+            <h2>お問い合わせフォーム</h2>
+            <p>エンジニアとして参加したい方、投資企業として相談したい方は、目的に合わせてお問い合わせください。専用フォームからのご連絡も可能です。</p>
+            <div class="pill-row" style="margin-top:22px; flex-direction:column;">
+              <a class="pill pill-outline" href="engineer.html#apply">エンジニア応募フォームへ <span class="arrow-circle">→</span></a>
+              <a class="pill pill-outline" href="investor.html#consult">投資企業相談フォームへ <span class="arrow-circle">→</span></a>
+            </div>
+          </div>
+          <form>
+            <label>
+              <span>お問い合わせ種別</span>
+              <select name="type">
+                <option>エンジニア応募</option>
+                <option>投資企業相談</option>
+                <option>その他お問い合わせ</option>
+              </select>
+            </label>
+            <label>
+              <span>お名前 / 会社名</span>
+              <input type="text" name="name" placeholder="例: 株式会社〇〇 / 山田 太郎">
+            </label>
+            <label>
+              <span>メールアドレス</span>
+              <input type="email" name="email" autocomplete="email" placeholder="example@example.com">
+            </label>
+            <label>
+              <span>ご相談内容</span>
+              <textarea rows="4" name="message" placeholder="相談したいテーマや保有スキルなどをご記入ください"></textarea>
+            </label>
+            <button class="pill pill-primary" type="button">送信内容を確認する <span class="arrow-circle">→</span></button>
+            <p class="form-note">※現在はフォーム送信機能を準備中です。お急ぎの場合はお電話にてお問い合わせください。</p>
+          </form>
+        </div>
+      </section>
+
+      <section class="section section--tight reveal">
+        <div class="company-grid">
+          <div class="card tel-block">
+            <h3>お電話でのお問い合わせ</h3>
+            <p class="tel-number">052-521-1110</p>
+            <p>一般社団法人 テクノサプライ（FAX 052-521-0064）</p>
+          </div>
+          <div class="card company-note">
+            <h3>運営法人について</h3>
+            <p>R&D コンソーシアムは一般社団法人テクノサプライが運営しています。所在地・関連会社などの詳細は法人情報をご覧ください。</p>
+            <div class="pill-row" style="margin-top:18px;">
+              <a class="pill pill-white" href="company.html">法人情報を見る <span class="arrow-circle">→</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="R&D コンソーシアム トップ">
+            <span class="brand-mark">R&D</span><span class="brand-city">コンソーシアム</span>
+          </a>
+          <p class="footer-tagline">つくるのは、未来。― 循環型 技術創出プラットフォーム</p>
+          <address class="footer-org">
+            <strong>一般社団法人 テクノサプライ</strong><br>
+            〒451-0077 愛知県名古屋市西区笹塚町2丁目10番地<br>
+            TEL 052-521-1110 ／ FAX 052-521-0064
+          </address>
+        </div>
+        <div class="footer-nav-group">
+          <h3>Site Map</h3>
+          <div class="footer-nav-cols">
+            <nav class="footer-nav" aria-label="フッターナビゲーション 1">
+              <a href="index.html">トップ</a>
+              <a href="index.html#concept">基本コンセプト</a>
+              <a href="index.html#features">事業の強み</a>
+              <a href="engineer.html">エンジニアの方</a>
+            </nav>
+            <nav class="footer-nav" aria-label="フッターナビゲーション 2">
+              <a href="investor.html">投資企業の方</a>
+              <a href="faq.html">よくある質問</a>
+              <a href="company.html">法人情報</a>
+              <a href="contact.html">お問い合わせ</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-inner">
+          <div class="footer-legal">
+            <a href="privacy.html">プライバシーポリシー</a>
+            <a href="terms.html">ご利用規約</a>
+          </div>
+          <p>© 一般社団法人テクノサプライ R&amp;D コンソーシアム</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

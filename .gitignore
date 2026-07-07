@@ -1,0 +1,11 @@
+.DS_Store
+
+# ローカルWordPress検証環境（wp-theme/のテーマ本体はコミット対象）
+wp-local/*
+!wp-local/start.sh
+
+# 生成物（zipはテーマフォルダから再生成可能）
+wp-theme/rd-consortium.zip
+
+# 見積・提案の原資料（リポジトリには含めない）
+ウェブサイト見積依頼/
