@@ -22,8 +22,7 @@
 
     <header class="site-header">
       <div class="header-meta" aria-label="補助リンク">
-        <a href="investor.html">投資企業の方</a>
-        <a href="engineer.html">エンジニアの方</a>
+        <a href="recruit.html">募集要項</a>
         <a href="faq.html">よくある質問</a>
         <a href="company.html">法人情報</a>
         <a href="contact.html" aria-current="page">お問い合わせ</a>
@@ -38,17 +37,17 @@
         <nav id="global-nav" class="global-nav" aria-label="グローバルナビゲーション">
           <a href="index.html">トップ</a>
           <a href="index.html#concept">基本コンセプト</a>
-          <a href="index.html#features">事業の強み</a>
-          <a href="engineer.html">エンジニアの方</a>
-          <a href="investor.html">投資企業の方</a>
-          <a href="faq.html">よくある質問</a>
+          <a href="engineer.html">エンジニア</a>
+          <a href="investor.html">投資企業</a>
+          <a href="projects.html">事例紹介</a>
+          <a href="news.html">ニュース</a>
         </nav>
       </div>
     </header>
 
     <aside class="side-cta" aria-label="固定リンク">
-      <a class="side-cta-primary" href="engineer.html">エンジニア<br>応募</a>
-      <a href="investor.html">投資企業<br>相談</a>
+      <a class="side-cta-primary" href="recruit.html">エンジニア<br>応募</a>
+      <a href="contact.html?type=investor">投資企業<br>相談</a>
       <a href="contact.html">お問い合わせ</a>
     </aside>
 
@@ -65,20 +64,24 @@
           <div>
             <small>Contact</small>
             <h2>お問い合わせフォーム</h2>
-            <p>エンジニアとして参加したい方、投資企業として相談したい方は、目的に合わせてお問い合わせください。専用フォームからのご連絡も可能です。</p>
+            <p>応募、投資企業相談、一般のお問い合わせを1つのフォームで受け付ける想定です。お問い合わせ種別を選んでご入力ください。</p>
             <div class="pill-row" style="margin-top:22px; flex-direction:column;">
-              <a class="pill pill-outline" href="engineer.html#apply">エンジニア応募フォームへ <span class="arrow-circle">→</span></a>
-              <a class="pill pill-outline" href="investor.html#consult">投資企業相談フォームへ <span class="arrow-circle">→</span></a>
+              <a class="pill pill-outline" href="recruit.html">募集要項を確認する <span class="arrow-circle">→</span></a>
+              <a class="pill pill-outline" href="projects.html">プロジェクト事例を見る <span class="arrow-circle">→</span></a>
             </div>
           </div>
           <form>
             <label>
               <span>お問い合わせ種別</span>
-              <select name="type">
-                <option>エンジニア応募</option>
-                <option>投資企業相談</option>
-                <option>その他お問い合わせ</option>
+              <select name="type" data-contact-type>
+                <option value="engineer">エンジニア応募</option>
+                <option value="investor">投資企業相談</option>
+                <option value="other">その他お問い合わせ</option>
               </select>
+            </label>
+            <label>
+              <span>対象の募集・プロジェクト</span>
+              <input type="text" name="subject" data-contact-subject placeholder="例: R&amp;Dプロジェクトエンジニア / 省電力センシング">
             </label>
             <label>
               <span>お名前 / 会社名</span>
@@ -136,10 +139,13 @@
               <a href="index.html">トップ</a>
               <a href="index.html#concept">基本コンセプト</a>
               <a href="index.html#features">事業の強み</a>
-              <a href="engineer.html">エンジニアの方</a>
+              <a href="engineer.html">エンジニアメリット</a>
+              <a href="recruit.html">エンジニア募集要項</a>
             </nav>
             <nav class="footer-nav" aria-label="フッターナビゲーション 2">
               <a href="investor.html">投資企業の方</a>
+              <a href="projects.html">プロジェクト事例</a>
+              <a href="news.html">ニュース</a>
               <a href="faq.html">よくある質問</a>
               <a href="company.html">法人情報</a>
               <a href="contact.html">お問い合わせ</a>
