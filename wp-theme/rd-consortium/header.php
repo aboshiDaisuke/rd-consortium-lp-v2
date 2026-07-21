@@ -43,18 +43,18 @@
 		<nav id="global-nav" class="global-nav" aria-label="グローバルナビゲーション">
 			<?php rd_nav_link( '', 'トップ' ); ?>
 			<a href="<?php echo esc_url( home_url( '/#concept' ) ); ?>">基本コンセプト</a>
-			<a href="<?php echo esc_url( home_url( '/#features' ) ); ?>">事業の強み</a>
 			<?php
-			rd_nav_link( 'engineer', 'エンジニアの方' );
-			rd_nav_link( 'investor', '投資企業の方' );
-			rd_nav_link( 'faq', 'よくある質問' );
+			rd_nav_link( 'engineer', 'エンジニア' );
+			rd_nav_link( 'investor', '投資企業' );
+			rd_nav_link( 'projects', '事例紹介' );
+			rd_nav_link( 'news', 'ニュース' );
 			?>
 		</nav>
 	</div>
 </header>
 
 <aside class="side-cta" aria-label="固定リンク">
-	<a class="side-cta-primary" href="<?php echo is_page( 'engineer' ) ? '#apply' : esc_url( home_url( '/engineer/' ) ); ?>">エンジニア<br>応募</a>
-	<a href="<?php echo is_page( 'investor' ) ? '#consult' : esc_url( home_url( '/investor/' ) ); ?>">投資企業<br>相談</a>
+	<a class="side-cta-primary" href="<?php echo esc_url( add_query_arg( array( 'type' => 'engineer', 'subject' => 'rd-engineer' ), home_url( '/contact/' ) ) ); ?>">エンジニア<br>応募</a>
+	<a href="<?php echo esc_url( add_query_arg( 'type', 'investor', home_url( '/contact/' ) ) ); ?>">投資企業<br>相談</a>
 	<a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">お問い合わせ</a>
 </aside>

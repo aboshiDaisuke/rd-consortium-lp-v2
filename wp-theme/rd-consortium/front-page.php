@@ -168,13 +168,19 @@ $tpl = get_template_directory_uri();
 				<small>Engineer</small>
 				<h3>R&Dプロジェクトエンジニア募集</h3>
 				<p>副業・業務委託で参加できるR&Dプロジェクトエンジニアを募集しています。募集要項の詳細はこちら。</p>
-				<a class="pill pill-white" href="<?php echo esc_url( home_url( '/engineer/' ) ); ?>">募集要項を見る <span class="arrow-circle">→</span></a>
+				<a class="pill pill-white" href="<?php echo esc_url( home_url( '/recruit/' ) ); ?>">募集要項を見る <span class="arrow-circle">→</span></a>
 			</article>
 			<article class="card audience-card">
 				<small>Investor</small>
 				<h3>投資企業として参画</h3>
 				<p>自社だけでは賄いきれない開発費・人材費を、共同出資で軽くする仕組みをご紹介します。</p>
 				<a class="pill pill-outline" href="<?php echo esc_url( home_url( '/investor/' ) ); ?>">投資企業向けページへ <span class="arrow-circle">→</span></a>
+			</article>
+			<article class="card audience-card">
+				<small>Projects</small>
+				<h3>プロジェクト事例</h3>
+				<p>参画企業とエンジニアが共同で進める研究開発テーマと成果をご紹介します。</p>
+				<a class="pill pill-outline" href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ?: home_url( '/projects/' ) ); ?>">事例を見る <span class="arrow-circle">→</span></a>
 			</article>
 			<article class="card audience-card">
 				<small>FAQ</small>

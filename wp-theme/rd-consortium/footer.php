@@ -25,11 +25,14 @@
 					<?php rd_nav_link( '', 'トップ' ); ?>
 					<a href="<?php echo esc_url( home_url( '/#concept' ) ); ?>">基本コンセプト</a>
 					<a href="<?php echo esc_url( home_url( '/#features' ) ); ?>">事業の強み</a>
-					<?php rd_nav_link( 'engineer', 'エンジニアの方' ); ?>
+					<?php rd_nav_link( 'engineer', 'エンジニアメリット' ); ?>
+					<?php rd_nav_link( 'recruit', 'エンジニア募集要項' ); ?>
 				</nav>
 				<nav class="footer-nav" aria-label="フッターナビゲーション 2">
 					<?php
-					rd_nav_link( 'investor', '投資企業の方' );
+					rd_nav_link( 'investor', '投資企業メリット' );
+					rd_nav_link( 'projects', 'プロジェクト事例' );
+					rd_nav_link( 'news', 'ニュース' );
 					rd_nav_link( 'faq', 'よくある質問' );
 					rd_nav_link( 'company', '法人情報' );
 					rd_nav_link( 'contact', 'お問い合わせ' );

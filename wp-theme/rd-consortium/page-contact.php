@@ -21,21 +21,25 @@ get_header();
 			<div>
 				<small>Contact</small>
 				<h2>お問い合わせフォーム</h2>
-				<p>エンジニアとして参加したい方、投資企業として相談したい方は、目的に合わせてお問い合わせください。専用フォームからのご連絡も可能です。</p>
+				<p>応募、投資企業相談、一般のお問い合わせを1つのフォームで受け付けます。お問い合わせ種別を選んでご入力ください。</p>
 				<div class="pill-row" style="margin-top:22px; flex-direction:column;">
-					<a class="pill pill-outline" href="<?php echo esc_url( home_url( '/engineer/#apply' ) ); ?>">エンジニア応募フォームへ <span class="arrow-circle">→</span></a>
-					<a class="pill pill-outline" href="<?php echo esc_url( home_url( '/investor/#consult' ) ); ?>">投資企業相談フォームへ <span class="arrow-circle">→</span></a>
+					<a class="pill pill-outline" href="<?php echo esc_url( home_url( '/recruit/' ) ); ?>">募集要項を確認する <span class="arrow-circle">→</span></a>
+					<a class="pill pill-outline" href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ?: home_url( '/projects/' ) ); ?>">プロジェクト事例を見る <span class="arrow-circle">→</span></a>
 				</div>
 			</div>
 			<?php // フォームプラグイン導入時はここをショートコードに置き換え ?>
 			<form>
 				<label>
 					<span>お問い合わせ種別</span>
-					<select name="your-type">
-						<option>エンジニア応募</option>
-						<option>投資企業相談</option>
-						<option>その他お問い合わせ</option>
+					<select name="type" data-contact-type>
+						<option value="engineer">エンジニア応募</option>
+						<option value="investor">投資企業相談</option>
+						<option value="other">その他お問い合わせ</option>
 					</select>
+				</label>
+				<label>
+					<span>対象の募集・プロジェクト</span>
+					<input type="text" name="subject" data-contact-subject placeholder="例: R&amp;Dプロジェクトエンジニア / 省電力センシング">
 				</label>
 				<label>
 					<span>お名前 / 会社名</span>

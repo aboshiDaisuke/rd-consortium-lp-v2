@@ -588,6 +588,30 @@ main, .site-footer { position: relative; z-index: 1; }
 /* ============================================================
    NEWS
    ============================================================ */
+.content-grid { display: grid; gap: 24px; }
+.content-card { display: grid; grid-template-columns: minmax(220px, .72fr) minmax(0, 1.28fr); gap: 0; padding: 0; overflow: hidden; transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out); }
+.content-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.content-card-visual { min-height: 210px; display: grid; place-items: center; padding: 28px; background: linear-gradient(145deg, #171c3d, #565eaa 58%, #8ec5dd); color: rgba(255,255,255,.9); font-family: var(--font-en); font-weight: 700; letter-spacing: .08em; text-align: center; }
+.content-card-image { padding: 0; overflow: hidden; }
+.content-card-image img, .project-featured-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.content-card-body { display: grid; align-content: center; gap: 12px; padding: clamp(24px, 4vw, 38px); }
+.content-card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.content-card h2 { margin: 0; color: var(--navy); font-family: var(--font-serif); font-size: clamp(20px, 2.6vw, 28px); font-weight: 600; line-height: 1.55; letter-spacing: .04em; }
+.content-card p { margin: 0; color: var(--muted); font-size: 14px; }
+.content-card .pill { justify-self: start; margin-top: 4px; }
+.content-tag, .cat-badge { display: inline-flex; align-items: center; padding: 5px 10px; border-radius: 999px; background: #eef0fb; color: var(--primary-deep); font-size: 11px; font-weight: 700; letter-spacing: .06em; }
+.content-tag--open { background: #e4f4ee; color: #176b50; }
+.detail-layout { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: clamp(28px, 5vw, 60px); align-items: start; }
+.detail-body { padding: clamp(28px, 5vw, 52px); }
+.detail-body h2 { margin: 36px 0 12px; font-family: var(--font-serif); color: var(--navy); }
+.detail-body h2:first-child { margin-top: 0; }
+.detail-body p, .detail-body li { color: var(--muted); line-height: 1.9; }
+.detail-aside { display: grid; gap: 18px; position: sticky; top: 130px; }
+.detail-aside .card { display: grid; gap: 14px; padding: 24px; }
+.detail-aside h2, .detail-aside h3, .detail-aside p { margin: 0; }
+.detail-aside p { color: var(--muted); font-size: 14px; }
+.detail-nav { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; margin-top: 42px; padding-top: 24px; border-top: 1px solid var(--line); }
+.project-featured-image { margin: 0 0 28px; overflow: hidden; border-radius: 16px; }
 .news-list { display: grid; }
 .news-list li { display: flex; gap: 22px; align-items: baseline; padding: 20px 8px; border-bottom: 1px solid var(--line); }
 .news-list li:first-child { border-top: 1px solid var(--line); }
@@ -601,7 +625,7 @@ main, .site-footer { position: relative; z-index: 1; }
 /* ============================================================
    JOIN / audience カード
    ============================================================ */
-.audience-grid { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 22px; }
+.audience-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
 .audience-card { display: grid; align-content: start; gap: 12px; padding: 32px 30px; transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out); }
 .audience-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
 .audience-card small { font-family: var(--font-en); font-size: 11px; font-weight: 600; letter-spacing: .3em; color: var(--primary); text-transform: uppercase; }
@@ -900,6 +924,8 @@ textarea { resize: vertical; }
   .footer-inner {
     grid-template-columns: 1fr;
   }
+  .detail-layout { grid-template-columns: 1fr; }
+  .detail-aside { position: static; }
   .split-visual { max-width: 520px; }
   .feature-cols { grid-template-columns: 1fr; gap: 12px; }
 
@@ -932,6 +958,8 @@ textarea { resize: vertical; }
   .page-hero { margin: 8px; border-radius: 22px; }
   .section { width: calc(100% - 36px); }
   .company-grid dl div { grid-template-columns: 1fr; gap: 4px; }
+  .content-card { grid-template-columns: 1fr; }
+  .content-card-visual { min-height: 150px; }
   .pill-row { flex-direction: column; }
   .pill-row .pill { width: 100%; min-width: 0; }
   .footer-nav-cols { grid-template-columns: 1fr; }

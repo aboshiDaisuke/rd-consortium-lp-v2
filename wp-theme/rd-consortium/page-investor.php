@@ -53,34 +53,17 @@ get_header();
 		</div>
 	</section>
 
-	<section id="consult" class="section reveal">
-		<div class="contact-panel">
+	<section class="section reveal">
+		<div class="contact-panel" style="grid-template-columns:1fr;">
 			<div>
 				<small>Contact</small>
 				<h2>投資企業向け相談フォーム</h2>
-				<p>現場課題のご相談、プロジェクトへのご参画をご検討の企業様は、以下のフォームよりお問い合わせください。</p>
+				<p>現場課題のご相談、プロジェクトへのご参画は、共通お問い合わせフォームで「投資企業相談」を選択してお送りください。</p>
+				<div class="pill-row" style="margin-top:22px;">
+					<a class="pill pill-dark" href="<?php echo esc_url( add_query_arg( 'type', 'investor', home_url( '/contact/' ) ) ); ?>">投資企業として相談する <span class="arrow-circle">→</span></a>
+					<a class="pill pill-outline" href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ?: home_url( '/projects/' ) ); ?>">プロジェクト事例を見る <span class="arrow-circle">→</span></a>
+				</div>
 			</div>
-			<?php // フォームプラグイン導入時はここをショートコードに置き換え ?>
-			<form>
-				<label>
-					<span>会社名</span>
-					<input type="text" name="your-company" placeholder="例: 株式会社〇〇">
-				</label>
-				<label>
-					<span>ご担当者名</span>
-					<input type="text" name="your-name" autocomplete="name" placeholder="例: 山田 太郎">
-				</label>
-				<label>
-					<span>メールアドレス</span>
-					<input type="email" name="your-email" autocomplete="email" placeholder="example@example.com">
-				</label>
-				<label>
-					<span>ご相談内容</span>
-					<textarea rows="4" name="your-message" placeholder="現場課題や検討中のテーマなどをご記入ください"></textarea>
-				</label>
-				<button class="pill pill-dark" type="button">送信内容を確認する <span class="arrow-circle">→</span></button>
-				<p class="form-note">※現在はフォーム送信機能を準備中です。お急ぎの場合はお電話にてお問い合わせください。</p>
-			</form>
 		</div>
 	</section>
 </main>

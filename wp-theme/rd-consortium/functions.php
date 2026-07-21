@@ -27,6 +27,27 @@ add_action( 'after_setup_theme', function () {
 } );
 
 /* ---------------------------------------------------------
+ * プロジェクト事例（構成案: wordpress③）
+ * ------------------------------------------------------- */
+add_action( 'init', function () {
+	register_post_type( 'project', array(
+		'labels' => array(
+			'name'          => 'プロジェクト事例',
+			'singular_name' => 'プロジェクト事例',
+			'add_new_item'  => 'プロジェクト事例を追加',
+			'edit_item'     => 'プロジェクト事例を編集',
+		),
+		'public'       => true,
+		'has_archive'  => 'projects',
+		'rewrite'      => array( 'slug' => 'projects' ),
+		'menu_icon'    => 'dashicons-lightbulb',
+		'show_in_rest' => true,
+		'supports'     => array( 'title', 'editor', 'excerpt', 'thumbnail' ),
+		'taxonomies'   => array( 'category' ),
+	) );
+} );
+
+/* ---------------------------------------------------------
  * CSS / JS / Webフォント
  * ------------------------------------------------------- */
 add_action( 'wp_enqueue_scripts', function () {
@@ -92,6 +113,10 @@ function rd_nav_link( string $path, string $label, string $extra_class = '' ): v
 	$url     = '' === $path ? home_url( '/' ) : home_url( '/' . trim( $path, '/' ) . '/' );
 	$current = '';
 	if ( '' === $path && ( is_front_page() || is_home() && get_option( 'show_on_front' ) !== 'page' ) ) {
+		$current = ' aria-current="page"';
+	} elseif ( 'projects' === trim( $path, '/' ) && ( is_post_type_archive( 'project' ) || is_singular( 'project' ) ) ) {
+		$current = ' aria-current="page"';
+	} elseif ( 'news' === trim( $path, '/' ) && ( is_home() || is_singular( 'post' ) ) ) {
 		$current = ' aria-current="page"';
 	} elseif ( '' !== $path && is_page( trim( $path, '/' ) ) ) {
 		$current = ' aria-current="page"';
