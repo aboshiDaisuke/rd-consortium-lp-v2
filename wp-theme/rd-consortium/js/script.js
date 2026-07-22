@@ -48,6 +48,78 @@
 
   document.addEventListener("DOMContentLoaded", initReveal);
 
+  // トップページの構造数値を、表示時に一度だけカウントアップ
+  function initStructureCounts() {
+    const counters = document.querySelectorAll(".structure-number[data-count]");
+    if (!counters.length) return;
+
+    const showFinal = (element) => {
+      const target = Number(element.dataset.count || 0);
+      const suffix = element.dataset.suffix || "";
+      element.textContent = `${String(target).padStart(2, "0")}${suffix}`;
+    };
+
+    if (!("IntersectionObserver" in window) || prefersReducedMotion) {
+      counters.forEach(showFinal);
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const element = entry.target;
+        const target = Number(element.dataset.count || 0);
+        const suffix = element.dataset.suffix || "";
+        const startedAt = performance.now();
+        const duration = 900;
+
+        const tick = (now) => {
+          const progress = Math.min((now - startedAt) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = Math.round(target * eased);
+          element.textContent = `${String(current).padStart(2, "0")}${suffix}`;
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+
+        requestAnimationFrame(tick);
+        observer.unobserve(element);
+      });
+    }, { threshold: 0.45 });
+
+    counters.forEach((counter) => observer.observe(counter));
+  }
+
+  // 背景図形と巨大文字にごく弱い奥行きを加える
+  function initAmbientParallax() {
+    if (prefersReducedMotion) return;
+    const wires = document.querySelectorAll(".wire");
+    const heroGiant = document.querySelector(".hero-giant");
+    if (!wires.length && !heroGiant) return;
+
+    let queued = false;
+    const update = () => {
+      const scrollY = window.scrollY;
+      wires.forEach((wire, index) => {
+        const rate = 0.018 + index * 0.012;
+        wire.style.translate = `0 ${Math.round(scrollY * rate)}px`;
+      });
+      if (heroGiant instanceof HTMLElement) {
+        heroGiant.style.translate = `0 ${Math.round(scrollY * 0.035)}px`;
+      }
+      queued = false;
+    };
+
+    window.addEventListener("scroll", () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(update);
+    }, { passive: true });
+    update();
+  }
+
+  document.addEventListener("DOMContentLoaded", initStructureCounts);
+  document.addEventListener("DOMContentLoaded", initAmbientParallax);
+
   // 共通フォームへ導線元の種別・対象プロジェクトを引き継ぐ
   const params = new URLSearchParams(window.location.search);
   const contactType = document.querySelector("[data-contact-type]");

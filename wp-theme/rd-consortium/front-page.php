@@ -14,6 +14,7 @@ $tpl = get_template_directory_uri();
 	<section class="hero" aria-labelledby="hero-title">
 		<div class="hero-media">
 			<img src="<?php echo esc_url( $tpl . '/assets/rd-hero-generated.png' ); ?>" alt="企業と技術者が研究開発に取り組むR&D コンソーシアムのイメージ">
+			<p class="hero-giant" aria-hidden="true">OPEN<br>INNOVATION</p>
 			<div class="hero-copy">
 				<p class="hero-eyebrow">一般社団法人テクノサプライ<span class="hero-eyebrow-en">｜ R&amp;D CONSORTIUM</span></p>
 				<h1 id="hero-title">循環型<span class="grad-text grad-text--bright">技術創出</span><br>プラットフォーム</h1>
@@ -26,6 +27,12 @@ $tpl = get_template_directory_uri();
 			</div>
 		</div>
 	</section>
+
+	<div class="innovation-strip" aria-label="R&Dコンソーシアムの仕組み">
+		<div class="innovation-strip-track">
+			<span>FIELD-DRIVEN IDEAS</span><i>×</i><span>SHARED INVESTMENT</span><i>×</i><span>DISTRIBUTED ENGINEERING</span><i>×</i><span>VALUE RETURN</span>
+		</div>
+	</div>
 
 	<section id="concept" class="section reveal">
 		<div class="sec-head">
@@ -55,6 +62,33 @@ $tpl = get_template_directory_uri();
 				<strong>04</strong>
 				<h3>成果還元型報酬設計</h3>
 				<p>完成した技術・製品が事業化された際、貢献度に応じて利益を還元します。</p>
+			</article>
+		</div>
+	</section>
+
+	<section class="section structure-section reveal" aria-labelledby="structure-title">
+		<div class="sec-head">
+			<p class="sec-label">Structure at a Glance<span class="jp">仕組みを数字で見る</span></p>
+			<h2 class="sec-title" id="structure-title">ひとつの組織で抱え込まない。<br><span class="grad-text">つながる構造</span>が、研究開発を前へ進める。</h2>
+		</div>
+		<div class="structure-grid">
+			<article class="structure-card structure-card--wide reveal">
+				<p class="structure-kicker">Core Elements</p>
+				<p class="structure-number" data-count="4" data-suffix="">04</p>
+				<h3>技術創出を支える4つの要素</h3>
+				<p>現場発のアイデア、共同資金、分散型技術リソース、成果還元型報酬設計。必要な要素をプロジェクト単位で束ねます。</p>
+			</article>
+			<article class="structure-card reveal" style="--delay:.08s">
+				<p class="structure-kicker">Entry Routes</p>
+				<p class="structure-number" data-count="2" data-suffix="">02</p>
+				<h3>2つの参加ルート</h3>
+				<p>投資企業とエンジニア。それぞれの強みを持ち寄れる入口を用意しています。</p>
+			</article>
+			<article class="structure-card structure-card--dark reveal" style="--delay:.16s">
+				<p class="structure-kicker">Shared Platform</p>
+				<p class="structure-number" data-count="1" data-suffix="">01</p>
+				<h3>ひとつの循環型基盤</h3>
+				<p>課題の発見から開発、事業化、利益還元までを一つの循環として設計します。</p>
 			</article>
 		</div>
 	</section>
@@ -158,6 +192,66 @@ $tpl = get_template_directory_uri();
 		<p class="features-closer reveal">革新的な技術創出インフラの構築</p>
 	</section>
 
+	<section id="projects" class="section project-showcase reveal" aria-labelledby="project-showcase-title">
+		<div class="sec-head">
+			<p class="sec-label">Projects<span class="jp">プロジェクト事例</span></p>
+			<h2 class="sec-title" id="project-showcase-title">課題を、<span class="grad-text">動くプロジェクト</span>へ。</h2>
+			<p class="sec-lead">現場の困りごとや事業アイデアを起点に、必要な知見を持つメンバーが集まり、技術検証と事業化を進めます。</p>
+		</div>
+		<?php
+		$projects = new WP_Query( array(
+			'post_type'      => 'project',
+			'posts_per_page' => 3,
+			'no_found_rows'  => true,
+		) );
+		?>
+		<div class="project-stage">
+			<?php if ( $projects->have_posts() ) : ?>
+				<?php $project_index = 0; ?>
+				<?php while ( $projects->have_posts() ) : $projects->the_post(); ?>
+					<?php
+					$project_index++;
+					$project_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+					$project_style = '--delay:' . ( ( $project_index - 1 ) * 0.08 ) . 's';
+					if ( $project_image ) {
+						$project_style .= ';--project-image:url("' . esc_url_raw( $project_image ) . '")';
+					}
+					?>
+					<article class="project-panel reveal<?php echo 1 === $project_index ? ' project-panel--lead' : ''; ?>" style="<?php echo esc_attr( $project_style ); ?>">
+						<a href="<?php the_permalink(); ?>">
+							<span class="project-seq">PROJECT <?php echo esc_html( str_pad( (string) $project_index, 2, '0', STR_PAD_LEFT ) ); ?></span>
+							<div class="project-panel-copy">
+								<h3><?php the_title(); ?></h3>
+								<p><?php echo esc_html( get_the_excerpt() ); ?></p>
+								<span class="project-link">VIEW PROJECT <b>→</b></span>
+							</div>
+						</a>
+					</article>
+				<?php endwhile; wp_reset_postdata(); ?>
+			<?php else : ?>
+				<article class="project-panel project-panel--lead project-panel--sensor reveal">
+					<a href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ?: home_url( '/projects/' ) ); ?>">
+						<span class="project-seq">PROJECT 01</span>
+						<div class="project-panel-copy"><h3>省電力センシング技術</h3><p>現場データを低消費電力で取得し、設備の状態把握や予兆検知につなげる研究開発テーマ。</p><span class="project-link">VIEW PROJECT <b>→</b></span></div>
+					</a>
+				</article>
+				<article class="project-panel project-panel--manufacturing reveal" style="--delay:.08s">
+					<a href="<?php echo esc_url( home_url( '/contact/?type=investor' ) ); ?>">
+						<span class="project-seq">NEXT THEME</span>
+						<div class="project-panel-copy"><h3>製造現場の課題を募集</h3><p>自社だけでは進めにくい技術テーマを、共同研究開発のプロジェクトへ変えていきます。</p><span class="project-link">START A PROJECT <b>→</b></span></div>
+					</a>
+				</article>
+				<article class="project-panel project-panel--engineer reveal" style="--delay:.16s">
+					<a href="<?php echo esc_url( home_url( '/recruit/' ) ); ?>">
+						<span class="project-seq">JOIN THE TEAM</span>
+						<div class="project-panel-copy"><h3>専門技術をプロジェクトへ</h3><p>本業で培った知識や経験を、企業横断の研究開発と新しい価値づくりに活かせます。</p><span class="project-link">ENGINEER ENTRY <b>→</b></span></div>
+					</a>
+				</article>
+			<?php endif; ?>
+		</div>
+		<div class="project-all-link"><a class="pill pill-outline" href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ?: home_url( '/projects/' ) ); ?>">プロジェクト事例一覧 <span class="arrow-circle">→</span></a></div>
+	</section>
+
 	<section class="section reveal" aria-labelledby="join-title">
 		<div class="sec-head">
 			<p class="sec-label">Join Us<span class="jp">ご参加・お問い合わせ</span></p>
@@ -188,6 +282,19 @@ $tpl = get_template_directory_uri();
 				<p>投資企業・エンジニアそれぞれからよく寄せられるご質問にお答えしています。</p>
 				<a class="pill pill-outline" href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">Q&amp;Aを見る <span class="arrow-circle">→</span></a>
 			</article>
+		</div>
+	</section>
+
+	<section class="future-cta reveal" aria-labelledby="future-cta-title">
+		<p class="future-cta-ghost" aria-hidden="true">CREATE THE NEXT</p>
+		<div class="future-cta-inner">
+			<p class="sec-label">Contact<span class="jp">参加・ご相談</span></p>
+			<h2 id="future-cta-title">まだ名前のない技術を、<br><span class="grad-text grad-text--bright">ともにつくる。</span></h2>
+			<p>課題を持つ企業も、専門性を活かしたいエンジニアも。まずは現在地をお聞かせください。</p>
+			<div class="future-cta-actions">
+				<a class="pill pill-primary" href="<?php echo esc_url( add_query_arg( 'type', 'investor', home_url( '/contact/' ) ) ); ?>">投資企業として相談 <span class="arrow-circle">→</span></a>
+				<a class="pill pill-white" href="<?php echo esc_url( home_url( '/recruit/' ) ); ?>">エンジニア募集を見る <span class="arrow-circle">→</span></a>
+			</div>
 		</div>
 	</section>
 

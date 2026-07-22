@@ -41,6 +41,11 @@
 			</div>
 		</div>
 	</div>
+	<div class="footer-actions" aria-label="参加・お問い合わせ">
+		<a href="<?php echo esc_url( home_url( '/recruit/' ) ); ?>"><span>Engineer Entry</span>エンジニア募集を見る <b>→</b></a>
+		<a href="<?php echo esc_url( add_query_arg( 'type', 'investor', home_url( '/contact/' ) ) ); ?>"><span>Investor Contact</span>投資企業として相談 <b>→</b></a>
+		<a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><span>General Contact</span>お問い合わせ <b>→</b></a>
+	</div>
 	<div class="footer-bottom">
 		<div class="footer-bottom-inner">
 			<div class="footer-legal">
