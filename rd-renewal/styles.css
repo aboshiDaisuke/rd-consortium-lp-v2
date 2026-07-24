@@ -254,7 +254,7 @@ main, .site-footer { position: relative; z-index: 1; }
 }
 /* ===== グラデーション強調文字 ===== */
 .grad-text {
-  background-image: linear-gradient(105deg, var(--blue) 0%, var(--violet) 52%, var(--magenta) 100%);
+  background-image: linear-gradient(105deg, #2f7dff 0%, #8a54ff 50%, #ff3ed4 100%);
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent; color: transparent;
   padding-inline: 0.02em;
@@ -262,9 +262,10 @@ main, .site-footer { position: relative; z-index: 1; }
 @supports not ((-webkit-background-clip: text) or (background-clip: text)) {
   .grad-text { color: var(--primary-deep); -webkit-text-fill-color: currentColor; }
 }
-/* 暗背景上: 明るいラベンダー→シアン */
+/* 暗背景上: 発光感のあるシアン→ラベンダー→ピンク */
 .grad-text--bright {
-  background-image: linear-gradient(100deg, #81dcff 0%, #a9a1ff 48%, #ff76e5 100%);
+  background-image: linear-gradient(100deg, #66f0ff 0%, #b5a3ff 45%, #ff7ff0 100%);
+  filter: drop-shadow(0 0 16px rgba(140, 190, 255, 0.5));
 }
 
 @media (prefers-reduced-motion: reduce) {
