@@ -821,9 +821,16 @@ details p::before {
 .activity-grid h3 { margin: 0 0 8px; font-size: 16.5px; color: var(--navy); letter-spacing: .04em; }
 .activity-grid p { margin: 0; color: var(--muted); font-size: .88rem; }
 
-.greeting-block { padding: clamp(30px, 5vw, 48px); }
-.greeting-block h3 { margin: 0 0 14px; font-family: var(--font-serif); font-weight: 600; font-size: 22px; color: var(--navy); letter-spacing: .06em; }
-.greeting-block p { margin: 0; color: var(--muted); }
+.greeting-panel { display: grid; grid-template-columns: minmax(240px, .56fr) minmax(0, 1.44fr); gap: clamp(28px, 4.5vw, 58px); padding: clamp(28px, 4.5vw, 52px); align-items: start; }
+.greeting-photo { margin: 0; position: sticky; top: 96px; }
+.greeting-photo img { display: block; width: 100%; height: auto; border-radius: 14px; box-shadow: var(--shadow-sm); }
+.greeting-photo figcaption { margin-top: 16px; display: flex; flex-direction: column; gap: 4px; font-family: var(--font-serif); font-weight: 600; font-size: 16.5px; color: var(--navy); letter-spacing: .1em; }
+.greeting-photo figcaption .en { font-family: var(--font-en); font-weight: 600; font-size: 10.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--primary-deep); }
+.greeting-body p { margin: 0 0 1.6em; font-size: 14.5px; line-height: 2.15; color: var(--ink); }
+.greeting-body p:last-child { margin-bottom: 0; }
+.greeting-body p.greeting-em { padding: 6px 0 2px; font-family: var(--font-serif); font-weight: 600; font-size: clamp(18px, 2.3vw, 23px); line-height: 1.85; color: var(--navy); letter-spacing: .05em; }
+.greeting-body p.greeting-sign { margin: 38px 0 0; text-align: right; font-size: 13px; line-height: 2; color: var(--muted); }
+.greeting-body p.greeting-sign strong { display: block; margin-top: 2px; font-family: var(--font-serif); font-size: 19px; font-weight: 600; color: var(--navy); letter-spacing: .14em; }
 
 /* ============================================================
    お問い合わせ / フォーム
@@ -970,11 +977,12 @@ textarea { resize: vertical; }
   .pillar-grid, .split-section, .audience-grid,
   .investor-panel, .faq-grid, .company-grid, .contact-panel,
   .merit-grid, .group-companies, .activity-grid,
-  .footer-inner {
+  .footer-inner, .greeting-panel {
     grid-template-columns: 1fr;
   }
   .detail-layout { grid-template-columns: 1fr; }
   .detail-aside { position: static; }
+  .greeting-photo { position: static; max-width: 400px; }
   .split-visual { max-width: 520px; }
   .feature-cols { grid-template-columns: 1fr; gap: 12px; }
 
