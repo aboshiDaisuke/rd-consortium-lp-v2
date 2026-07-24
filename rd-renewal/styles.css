@@ -794,7 +794,6 @@ main, .site-footer { position: relative; z-index: 1; }
 /* エンジニア募集バナー（ニュース直下） */
 .recruit-banner {
   position: relative; display: block;
-  max-width: 980px; margin: 0 auto;
   border-radius: var(--radius-lg); overflow: hidden;
   box-shadow: var(--shadow);
   transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out);
