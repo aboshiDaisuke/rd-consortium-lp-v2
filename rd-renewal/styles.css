@@ -631,24 +631,26 @@ main, .site-footer { position: relative; z-index: 1; }
 .split-copy p + p { margin-top: 18px; }
 .split-visual {
   position: relative;
-  overflow: hidden; border-radius: var(--radius);
-  background: linear-gradient(160deg, #eceef7, #f6f7fc);
-  box-shadow: var(--shadow);
-  padding: clamp(14px, 2.5vw, 24px);
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
 }
-.split-visual::before {
-  content: ""; position: absolute; inset: 0;
-  background: repeating-radial-gradient(circle at 100% 0%, rgba(86, 94, 170, 0.08) 0 1px, rgba(0,0,0,0) 1px 42px);
-}
-.split-visual img {
+.split-visual::before { content: none; }
+.split-visual img,
+.split-visual .ecosystem-video {
   position: relative;
   display: block;
   width: 100%;
   height: auto;
   max-width: 100%;
-  border-radius: 10px;
+  border-radius: 0;
   object-fit: contain;
   object-position: center;
+  background: transparent;
+  pointer-events: none;
+  box-shadow: none;
 }
 
 /* ============================================================

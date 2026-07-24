@@ -6,22 +6,22 @@
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // ヒーロー背景動画（自動再生 / 低モーション対応）
-  const heroVideo = document.querySelector(".hero-video");
-  if (heroVideo instanceof HTMLVideoElement) {
+  // 背景動画（ヒーロー / エコシステム）自動再生・低モーション対応
+  document.querySelectorAll(".hero-video, .ecosystem-video").forEach((video) => {
+    if (!(video instanceof HTMLVideoElement)) return;
     if (prefersReducedMotion) {
-      heroVideo.pause();
-      heroVideo.removeAttribute("autoplay");
-    } else {
-      const play = () => {
-        heroVideo.play().catch(() => {
-          /* autoplay ブロック時は poster のまま */
-        });
-      };
-      if (heroVideo.readyState >= 2) play();
-      else heroVideo.addEventListener("loadeddata", play, { once: true });
+      video.pause();
+      video.removeAttribute("autoplay");
+      return;
     }
-  }
+    const play = () => {
+      video.play().catch(() => {
+        /* autoplay ブロック時は poster のまま */
+      });
+    };
+    if (video.readyState >= 2) play();
+    else video.addEventListener("loadeddata", play, { once: true });
+  });
 
   /* ============================================================
      背景「氷の渦」— HAL名古屋風モザイク（吸い込みアニメ）
