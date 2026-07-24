@@ -29,7 +29,7 @@
 		rd_nav_link( 'investor', '投資企業の方' );
 		rd_nav_link( 'engineer', 'エンジニアの方' );
 		rd_nav_link( 'faq', 'よくある質問' );
-		rd_nav_link( 'company', '法人情報' );
+		rd_nav_link( 'company', '組織情報' );
 		rd_nav_link( 'contact', 'お問い合わせ' );
 		?>
 	</div>

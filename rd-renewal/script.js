@@ -48,6 +48,71 @@
 
   document.addEventListener("DOMContentLoaded", initReveal);
 
+  // 数値ブロックがあるページでは、表示時に一度だけカウントアップ
+  function initStructureCounts() {
+    const counters = document.querySelectorAll(".structure-number[data-count]");
+    if (!counters.length) return;
+
+    const showFinal = (element) => {
+      const target = Number(element.dataset.count || 0);
+      const suffix = element.dataset.suffix || "";
+      element.textContent = `${String(target).padStart(2, "0")}${suffix}`;
+    };
+
+    if (!("IntersectionObserver" in window) || prefersReducedMotion) {
+      counters.forEach(showFinal);
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const element = entry.target;
+        const target = Number(element.dataset.count || 0);
+        const suffix = element.dataset.suffix || "";
+        const startedAt = performance.now();
+
+        const tick = (now) => {
+          const progress = Math.min((now - startedAt) / 900, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          element.textContent = `${String(Math.round(target * eased)).padStart(2, "0")}${suffix}`;
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+
+        requestAnimationFrame(tick);
+        observer.unobserve(element);
+      });
+    }, { threshold: 0.45 });
+
+    counters.forEach((counter) => observer.observe(counter));
+  }
+
+  // 背景図形にごく弱い奥行きを加える
+  function initAmbientParallax() {
+    if (prefersReducedMotion) return;
+    const wires = document.querySelectorAll(".wire");
+    if (!wires.length) return;
+
+    let queued = false;
+    const update = () => {
+      wires.forEach((wire, index) => {
+        const rate = 0.018 + index * 0.012;
+        wire.style.translate = `0 ${Math.round(window.scrollY * rate)}px`;
+      });
+      queued = false;
+    };
+
+    window.addEventListener("scroll", () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(update);
+    }, { passive: true });
+    update();
+  }
+
+  document.addEventListener("DOMContentLoaded", initStructureCounts);
+  document.addEventListener("DOMContentLoaded", initAmbientParallax);
+
   // 静的HTML版でも、導線元に応じて共通フォームの種別と対象名を引き継ぐ
   const params = new URLSearchParams(window.location.search);
   const contactType = document.querySelector("[data-contact-type]");

@@ -68,9 +68,9 @@ get_header();
 			</div>
 			<div class="card company-note">
 				<h3>運営法人について</h3>
-				<p>R&D コンソーシアムは一般社団法人テクノサプライが運営しています。所在地・関連会社などの詳細は法人情報をご覧ください。</p>
+				<p>R&D コンソーシアムは一般社団法人テクノサプライが運営しています。所在地・関連会社などの詳細は組織情報をご覧ください。</p>
 				<div class="pill-row" style="margin-top:18px;">
-					<a class="pill pill-white" href="<?php echo esc_url( home_url( '/company/' ) ); ?>">法人情報を見る <span class="arrow-circle">→</span></a>
+					<a class="pill pill-white" href="<?php echo esc_url( home_url( '/company/' ) ); ?>">組織情報を見る <span class="arrow-circle">→</span></a>
 				</div>
 			</div>
 		</div>

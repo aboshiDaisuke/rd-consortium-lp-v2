@@ -1,6 +1,6 @@
 <?php
 /**
- * 法人情報ページ（スラッグ: company）
+ * 組織情報ページ（スラッグ: company）
  *
  * @package rd-consortium
  */
@@ -10,8 +10,8 @@ get_header();
 
 <main id="main">
 	<div class="page-hero">
-		<p class="breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">トップ</a> / 法人情報</p>
-		<p class="page-hero-eyebrow">Company<span class="jp">法人情報</span></p>
+		<p class="breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">トップ</a> / 組織情報</p>
+		<p class="page-hero-eyebrow">Company<span class="jp">組織情報</span></p>
 		<h1>一般社団法人 テクノサプライ</h1>
 		<p>R&D コンソーシアムの運営法人および、関連会社のご紹介です。</p>
 	</div>
@@ -19,7 +19,7 @@ get_header();
 	<section class="section reveal" aria-labelledby="profile-title">
 		<div class="sec-head">
 			<p class="sec-label">Profile</p>
-			<h2 class="sec-title" id="profile-title">基本情報</h2>
+			<h2 class="sec-title" id="profile-title">組織概要</h2>
 		</div>
 		<div class="company-grid">
 			<dl class="card">
@@ -39,6 +39,26 @@ get_header();
 			<div class="card company-note">
 				<h3>地域と技術をつなぐ活動</h3>
 				<p>地域社会貢献活動、障害者支援、近隣小学校への寄付など、技術開発にとどまらない社会との接点も大切にしています。</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="section section--tight reveal" aria-labelledby="access-title">
+		<div class="sec-head">
+			<p class="sec-label">Access</p>
+			<h2 class="sec-title" id="access-title">アクセス</h2>
+		</div>
+		<div class="access-panel card">
+			<div class="access-map" aria-hidden="true">
+				<span class="access-pin"></span>
+				<span class="access-map-label">TECHNO SUPPLY</span>
+			</div>
+			<div class="access-copy">
+				<p class="access-kicker">Office Location</p>
+				<h3>一般社団法人 テクノサプライ</h3>
+				<address>〒451-0077<br>愛知県名古屋市西区笹塚町2丁目10番地</address>
+				<p>TEL 052-521-1110<br>FAX 052-521-0064</p>
+				<a class="pill pill-outline" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%84%9B%E7%9F%A5%E7%9C%8C%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%B8%82%E8%A5%BF%E5%8C%BA%E7%AC%B9%E5%A1%9A%E7%94%BA2%E4%B8%81%E7%9B%AE10%E7%95%AA%E5%9C%B0" target="_blank" rel="noopener">Google Mapsで開く <span class="arrow-circle">↗</span></a>
 			</div>
 		</div>
 	</section>

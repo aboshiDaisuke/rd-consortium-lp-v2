@@ -11,14 +11,16 @@
   --navy-2: #1b2148;
   --ink: #242a4a;
   --muted: #5d6480;
-  --primary: #565eaa;
-  --primary-deep: #40468c;
-  --primary-soft: #9298d2;
-  --blue: #2d5dc8;
+  --primary: #4c55d8;
+  --primary-deep: #3038a8;
+  --primary-soft: #939cf0;
+  --blue: #155ee8;
+  --violet: #7646eb;
+  --magenta: #e832c2;
   --cyan: #4fc3dd;
   --gold: #a8811f;
   --paper: #fdfdfe;
-  --ice: #eef0f8;
+  --ice: #edf6ff;
   --line: rgba(86, 94, 170, 0.20);
   --radius: 18px;
   --radius-lg: 30px;
@@ -85,8 +87,14 @@ main, .site-footer { position: relative; z-index: 1; }
 .motion-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
 .motion-bg::before {
   content: ""; position: absolute; inset: -18vmax;
-  background: repeating-radial-gradient(circle at 50% 38%, rgba(86, 94, 170, 0.09) 0 1.5px, rgba(86, 94, 170, 0) 1.5px 92px);
-  opacity: 0.75;
+  background:
+    repeating-radial-gradient(circle at 50% 38%, rgba(74, 153, 228, 0.16) 0 2px, rgba(86, 94, 170, 0) 2px 82px),
+    repeating-conic-gradient(from 12deg at 50% 38%, rgba(129, 194, 239, 0.16) 0 1.2deg, transparent 1.2deg 5.8deg);
+  opacity: 0.82;
+  -webkit-mask-image: radial-gradient(circle at 50% 38%, transparent 0 8%, #000 17% 64%, transparent 82%);
+  mask-image: radial-gradient(circle at 50% 38%, transparent 0 8%, #000 17% 64%, transparent 82%);
+  transform-origin: 50% 38%;
+  animation: vortexRotate 190s linear infinite;
 }
 .motion-bg::after {
   content: ""; position: absolute; inset: 0;
@@ -117,13 +125,14 @@ main, .site-footer { position: relative; z-index: 1; }
 .cube .f5 { transform: rotateX(90deg)  translateZ(var(--s)); }
 .cube .f6 { transform: rotateX(-90deg) translateZ(var(--s)); }
 @keyframes tunnelPulse { 0%, 100% { transform: translate(-50%, -50%) scale(0.98); opacity: 0.68; } 50% { transform: translate(-50%, -50%) scale(1.04); opacity: 0.85; } }
+@keyframes vortexRotate { to { transform: rotate(360deg); } }
 @keyframes spinA { 0% { transform: rotateX(-18deg) rotateY(0deg); } 100% { transform: rotateX(-18deg) rotateY(360deg); } }
 @keyframes spinB { 0% { transform: rotateX(0deg) rotateY(0deg); } 100% { transform: rotateX(360deg) rotateY(360deg); } }
 @keyframes spinC { 0% { transform: rotateZ(0deg) rotateX(0deg) rotateY(12deg); } 100% { transform: rotateZ(120deg) rotateX(360deg) rotateY(12deg); } }
 
 /* ===== グラデーション強調文字 ===== */
 .grad-text {
-  background-image: linear-gradient(105deg, #2d5dc8 0%, #565eaa 48%, #7a63b8 100%);
+  background-image: linear-gradient(105deg, var(--blue) 0%, var(--violet) 52%, var(--magenta) 100%);
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent; color: transparent;
   padding-inline: 0.02em;
@@ -133,11 +142,11 @@ main, .site-footer { position: relative; z-index: 1; }
 }
 /* 暗背景上: 明るいラベンダー→シアン */
 .grad-text--bright {
-  background-image: linear-gradient(100deg, #8fd8f2 0%, #9aa5f2 55%, #c3b3f5 100%);
+  background-image: linear-gradient(100deg, #81dcff 0%, #a9a1ff 48%, #ff76e5 100%);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .motion-tunnel, .cube { animation: none !important; }
+  .motion-bg::before, .motion-tunnel, .cube { animation: none !important; }
 }
 
 /* ============================================================
@@ -162,11 +171,12 @@ main, .site-footer { position: relative; z-index: 1; }
   gap: clamp(16px, 2.4vw, 34px);
   height: 40px;
   padding: 0 clamp(24px, 5vw, 60px);
-  border-bottom: 1px solid rgba(86, 94, 170, 0.10);
-  font-size: 12px; font-weight: 500; color: var(--muted);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  background: var(--navy);
+  font-size: 12px; font-weight: 500; color: rgba(255,255,255,.72);
 }
 .header-meta a { position: relative; transition: color .2s; }
-.header-meta a:hover, .header-meta a[aria-current="page"] { color: var(--primary-deep); }
+.header-meta a:hover, .header-meta a[aria-current="page"] { color: #fff; }
 
 .header-main {
   display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 28px;
@@ -774,7 +784,7 @@ details p::before {
 }
 
 /* ============================================================
-   法人情報
+   組織情報
    ============================================================ */
 .company-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(300px, .78fr); gap: clamp(28px, 5vw, 60px); align-items: start; }
 .company-grid dl { margin: 0; padding: clamp(24px, 3.5vw, 36px); }
@@ -785,6 +795,28 @@ details p::before {
 .company-note { padding: clamp(26px, 4vw, 36px); background: linear-gradient(150deg, #1b2148, #33407e 75%, #40468c); border-color: transparent; color: #fff; }
 .company-note h3 { margin: 0 0 12px; font-family: var(--font-serif); font-weight: 600; font-size: 22px; letter-spacing: .06em; }
 .company-note p { margin: 0; color: rgba(255,255,255,.8); font-size: 14.5px; }
+
+.access-panel { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(300px, .65fr); overflow: hidden; }
+.access-map {
+  position: relative; min-height: 420px; overflow: hidden;
+  background:
+    linear-gradient(32deg, transparent 0 46%, rgba(255,255,255,.88) 47% 51%, transparent 52%),
+    linear-gradient(122deg, transparent 0 37%, rgba(255,255,255,.72) 38% 42%, transparent 43%),
+    repeating-linear-gradient(0deg, rgba(76,85,216,.1) 0 1px, transparent 1px 46px),
+    repeating-linear-gradient(90deg, rgba(76,85,216,.1) 0 1px, transparent 1px 46px),
+    linear-gradient(145deg, #e8f4ff, #f4efff);
+}
+.access-map::before, .access-map::after { content: ""; position: absolute; border: 2px solid rgba(21,94,232,.22); border-radius: 50%; }
+.access-map::before { width: 280px; height: 280px; left: -80px; bottom: -120px; }
+.access-map::after { width: 180px; height: 180px; right: -50px; top: -70px; }
+.access-pin { position: absolute; left: 53%; top: 45%; width: 34px; height: 34px; border-radius: 50% 50% 50% 0; background: linear-gradient(135deg, var(--blue), var(--magenta)); transform: rotate(-45deg); box-shadow: 0 12px 28px rgba(76,85,216,.3); }
+.access-pin::after { content: ""; position: absolute; inset: 9px; border-radius: 50%; background: #fff; }
+.access-map-label { position: absolute; left: calc(53% + 28px); top: calc(45% + 5px); padding: 7px 12px; border-radius: 999px; background: #fff; box-shadow: var(--shadow-sm); color: var(--primary-deep); font-family: var(--font-en); font-size: 9px; font-weight: 700; letter-spacing: .12em; }
+.access-copy { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: clamp(28px, 5vw, 52px); background: rgba(255,255,255,.94); }
+.access-kicker { margin: 0 0 12px; color: var(--primary); font-family: var(--font-en); font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+.access-copy h3 { margin: 0 0 18px; color: var(--navy); font-family: var(--font-serif); font-size: clamp(20px, 2.4vw, 28px); }
+.access-copy address { margin: 0 0 12px; color: var(--ink); font-style: normal; line-height: 1.9; }
+.access-copy > p:not(.access-kicker) { margin: 0 0 24px; color: var(--muted); }
 
 .group-companies { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .group-companies article { padding: 28px 26px; transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out); }
@@ -893,6 +925,23 @@ textarea { resize: vertical; }
 .footer-nav a:hover { color: #fff; }
 .footer-nav a:hover::before { width: 20px; }
 
+.footer-actions {
+  display: grid; grid-template-columns: repeat(3, minmax(0,1fr));
+  width: min(1120px, calc(100% - 48px)); margin: 0 auto clamp(32px, 5vw, 52px);
+  border: 1px solid rgba(255,255,255,.18); border-radius: 999px; overflow: hidden;
+}
+.footer-actions a {
+  position: relative; display: grid; gap: 2px; align-content: center;
+  min-height: 78px; padding: 12px 58px 12px 28px;
+  border-right: 1px solid rgba(255,255,255,.14);
+  color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .04em;
+  transition: background .25s;
+}
+.footer-actions a:last-child { border-right: 0; }
+.footer-actions a:hover { background: rgba(255,255,255,.08); }
+.footer-actions span { font-family: var(--font-en); font-size: 9px; letter-spacing: .18em; color: var(--primary-soft); text-transform: uppercase; }
+.footer-actions b { position: absolute; right: 22px; top: 50%; transform: translateY(-50%); display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: #fff; color: var(--blue); }
+
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,.12);
 }
@@ -974,8 +1023,13 @@ textarea { resize: vertical; }
   .content-card-visual { min-height: 120px; }
   .project-facts { grid-template-columns: 1fr; }
   .company-grid dl div { grid-template-columns: 1fr; gap: 4px; }
+  .access-panel { grid-template-columns: 1fr; }
+  .access-map { min-height: 300px; }
   .pill-row { flex-direction: column; }
   .pill-row .pill { width: 100%; min-width: 0; }
   .footer-nav-cols { grid-template-columns: 1fr; }
+  .footer-actions { grid-template-columns: 1fr; border-radius: 18px; }
+  .footer-actions a { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.14); }
+  .footer-actions a:last-child { border-bottom: 0; }
   .footer-bottom-inner { justify-content: center; text-align: center; }
 }
