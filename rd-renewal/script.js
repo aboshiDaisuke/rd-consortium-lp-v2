@@ -179,22 +179,53 @@
     initStructureCounts();
   });
 
-  // 静的HTML版でも、導線元に応じて共通フォームの種別と対象名を引き継ぐ
-  const params = new URLSearchParams(window.location.search);
-  const contactType = document.querySelector("[data-contact-type]");
-  const contactSubject = document.querySelector("[data-contact-subject]");
-  const type = params.get("type");
-  const subject = params.get("subject");
+  // 共通フォーム：タブ切り替え + URLパラメータ(type/subject)からの初期状態設定
+  const contactTablist = document.querySelector(".contact-tabs");
+  if (contactTablist) {
+    const tabs = Array.from(contactTablist.querySelectorAll("[data-contact-tab]"));
+    const panelOf = (tab) => document.getElementById(tab.getAttribute("aria-controls"));
 
-  if (contactType instanceof HTMLSelectElement && type) {
-    const hasType = Array.from(contactType.options).some((option) => option.value === type);
-    if (hasType) contactType.value = type;
-  }
-  if (contactSubject instanceof HTMLInputElement && subject) {
-    const subjectLabels = {
-      "rd-engineer": "R&Dプロジェクトエンジニア",
-      "sensing-project": "省電力センシングプロジェクト"
+    const activateTab = (key, focus = false) => {
+      tabs.forEach((tab) => {
+        const selected = tab.dataset.contactTab === key;
+        tab.setAttribute("aria-selected", String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+        const panel = panelOf(tab);
+        if (panel) panel.hidden = !selected;
+        if (selected && focus) tab.focus();
+      });
     };
-    contactSubject.value = subjectLabels[subject] || subject;
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => activateTab(tab.dataset.contactTab));
+    });
+
+    // 左右矢印キーでタブを移動できるようにする
+    contactTablist.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+      const currentIndex = tabs.findIndex((tab) => tab.getAttribute("aria-selected") === "true");
+      const delta = event.key === "ArrowRight" ? 1 : -1;
+      const next = tabs[(currentIndex + delta + tabs.length) % tabs.length];
+      activateTab(next.dataset.contactTab, true);
+      event.preventDefault();
+    });
+
+    // 導線元に応じた初期タブ（?type=engineer / investor / other）
+    const params = new URLSearchParams(window.location.search);
+    const requestedType = params.get("type");
+    const hasType = tabs.some((tab) => tab.dataset.contactTab === requestedType);
+    activateTab(hasType ? requestedType : "engineer");
+
+    // 対象の募集・プロジェクト名の引き継ぎ（?subject=）
+    const subject = params.get("subject");
+    if (subject) {
+      const subjectLabels = {
+        "rd-engineer": "R&Dプロジェクトエンジニア",
+        "sensing-project": "省電力センシングプロジェクト"
+      };
+      document.querySelectorAll("[data-contact-subject]").forEach((input) => {
+        if (input instanceof HTMLInputElement) input.value = subjectLabels[subject] || subject;
+      });
+    }
   }
 })();

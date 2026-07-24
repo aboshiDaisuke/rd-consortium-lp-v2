@@ -22,7 +22,6 @@
 
     <header class="site-header">
       <div class="header-meta" aria-label="補助リンク">
-        <a href="recruit.html">エンジニア募集要項</a>
         <a href="faq.html">よくある質問</a>
         <a href="company.html">財団情報</a>
         <a href="contact.html" aria-current="page">お問い合わせ</a>
@@ -36,11 +35,11 @@
         </button>
         <nav id="global-nav" class="global-nav" aria-label="グローバルナビゲーション">
           <a href="index.html">トップ</a>
-          <a href="index.html#concept">基本コンセプト</a>
+          <a href="news.html">ニュース</a>
           <a href="engineer.html">エンジニア</a>
+          <a href="recruit.html">募集要項</a>
           <a href="investor.html">投資企業</a>
           <a href="projects.html">事例紹介</a>
-          <a href="news.html">ニュース</a>
         </nav>
       </div>
     </header>
@@ -56,48 +55,93 @@
         <p class="breadcrumb"><a href="index.html">トップ</a> / お問い合わせ</p>
         <p class="page-hero-eyebrow">Contact<span class="jp">お問い合わせ</span></p>
         <h1>プロジェクト相談・参画応募</h1>
-        <p>エンジニアとして参加したい方、投資企業として相談したい方は、目的に合わせてお問い合わせください。</p>
+        <p>エンジニア応募・投資企業相談・その他のお問い合わせを、共通フォームで受け付けています。タブで種別を切り替えてご入力ください。</p>
       </div>
 
       <section class="section reveal">
         <div class="contact-panel">
           <div>
             <small>Contact</small>
-            <h2>お問い合わせフォーム</h2>
-            <p>応募、投資企業相談、一般のお問い合わせを1つのフォームで受け付ける想定です。お問い合わせ種別を選んでご入力ください。</p>
+            <h2>共通お問い合わせフォーム</h2>
+            <p>エントリー（エンジニア応募）、投資企業相談、その他のお問い合わせを1つのフォームに一本化しています。タブでお問い合わせ種別を選んでご入力ください。</p>
             <div class="pill-row" style="margin-top:22px; flex-direction:column;">
               <a class="pill pill-outline" href="recruit.html">募集要項を確認する <span class="arrow-circle">→</span></a>
               <a class="pill pill-outline" href="projects.html">プロジェクト事例紹介を見る <span class="arrow-circle">→</span></a>
             </div>
           </div>
-          <form>
-            <label>
-              <span>お問い合わせ種別</span>
-              <select name="type" data-contact-type>
-                <option value="engineer">エンジニア応募</option>
-                <option value="investor">投資企業相談</option>
-                <option value="other">その他お問い合わせ</option>
-              </select>
-            </label>
-            <label>
-              <span>対象の募集・プロジェクト</span>
-              <input type="text" name="subject" data-contact-subject placeholder="例: R&amp;Dプロジェクトエンジニア / 省電力センシング">
-            </label>
-            <label>
-              <span>お名前 / 会社名</span>
-              <input type="text" name="name" placeholder="例: 株式会社〇〇 / 山田 太郎">
-            </label>
-            <label>
-              <span>メールアドレス</span>
-              <input type="email" name="email" autocomplete="email" placeholder="example@example.com">
-            </label>
-            <label>
-              <span>ご相談内容</span>
-              <textarea rows="4" name="message" placeholder="相談したいテーマや保有スキルなどをご記入ください"></textarea>
-            </label>
-            <button class="pill pill-primary" type="button">送信内容を確認する <span class="arrow-circle">→</span></button>
-            <p class="form-note">※現在はフォーム送信機能を準備中です。お急ぎの場合はお電話にてお問い合わせください。</p>
-          </form>
+          <div class="contact-form-area">
+            <div class="contact-tabs" role="tablist" aria-label="お問い合わせ種別">
+              <button class="contact-tab" type="button" role="tab" id="tab-engineer" aria-controls="panel-engineer" aria-selected="true" data-contact-tab="engineer">エンジニア応募</button>
+              <button class="contact-tab" type="button" role="tab" id="tab-investor" aria-controls="panel-investor" aria-selected="false" tabindex="-1" data-contact-tab="investor">投資企業相談</button>
+              <button class="contact-tab" type="button" role="tab" id="tab-other" aria-controls="panel-other" aria-selected="false" tabindex="-1" data-contact-tab="other">その他</button>
+            </div>
+            <div class="contact-tabpanel" role="tabpanel" id="panel-engineer" aria-labelledby="tab-engineer">
+              <form>
+                <label>
+                  <span>お名前</span>
+                  <input type="text" name="name" autocomplete="name" placeholder="例: 山田 太郎">
+                </label>
+                <label>
+                  <span>メールアドレス</span>
+                  <input type="email" name="email" autocomplete="email" placeholder="example@example.com">
+                </label>
+                <label>
+                  <span>対象の募集・プロジェクト</span>
+                  <input type="text" name="subject" data-contact-subject placeholder="例: R&amp;Dプロジェクトエンジニア">
+                </label>
+                <label>
+                  <span>保有スキル・経験・自己PR</span>
+                  <textarea rows="4" name="message" placeholder="専門分野、経験年数、参加可能な時間帯などをご記入ください"></textarea>
+                </label>
+                <button class="pill pill-primary" type="button">送信内容を確認する <span class="arrow-circle">→</span></button>
+                <p class="form-note">※現在はフォーム送信機能を準備中です。お急ぎの場合はお電話にてお問い合わせください。</p>
+              </form>
+            </div>
+            <div class="contact-tabpanel" role="tabpanel" id="panel-investor" aria-labelledby="tab-investor" hidden>
+              <form>
+                <label>
+                  <span>会社名</span>
+                  <input type="text" name="company" autocomplete="organization" placeholder="例: 株式会社〇〇">
+                </label>
+                <label>
+                  <span>ご担当者名</span>
+                  <input type="text" name="name" autocomplete="name" placeholder="例: 山田 太郎">
+                </label>
+                <label>
+                  <span>メールアドレス</span>
+                  <input type="email" name="email" autocomplete="email" placeholder="example@example.com">
+                </label>
+                <label>
+                  <span>対象プロジェクト（任意）</span>
+                  <input type="text" name="subject" data-contact-subject placeholder="例: 省電力センシング">
+                </label>
+                <label>
+                  <span>ご相談内容</span>
+                  <textarea rows="4" name="message" placeholder="現場課題や共同開発を検討したいテーマをご記入ください"></textarea>
+                </label>
+                <button class="pill pill-primary" type="button">送信内容を確認する <span class="arrow-circle">→</span></button>
+                <p class="form-note">※現在はフォーム送信機能を準備中です。お急ぎの場合はお電話にてお問い合わせください。</p>
+              </form>
+            </div>
+            <div class="contact-tabpanel" role="tabpanel" id="panel-other" aria-labelledby="tab-other" hidden>
+              <form>
+                <label>
+                  <span>お名前 / 会社名</span>
+                  <input type="text" name="name" placeholder="例: 株式会社〇〇 / 山田 太郎">
+                </label>
+                <label>
+                  <span>メールアドレス</span>
+                  <input type="email" name="email" autocomplete="email" placeholder="example@example.com">
+                </label>
+                <label>
+                  <span>お問い合わせ内容</span>
+                  <textarea rows="4" name="message" placeholder="お問い合わせ内容をご記入ください"></textarea>
+                </label>
+                <button class="pill pill-primary" type="button">送信内容を確認する <span class="arrow-circle">→</span></button>
+                <p class="form-note">※現在はフォーム送信機能を準備中です。お急ぎの場合はお電話にてお問い合わせください。</p>
+              </form>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -137,15 +181,13 @@
           <div class="footer-nav-cols">
             <nav class="footer-nav" aria-label="フッターナビゲーション 1">
               <a href="index.html">トップ</a>
-              <a href="index.html#concept">基本コンセプト</a>
-              <a href="index.html#features">事業の強み</a>
+              <a href="news.html">ニュース</a>
               <a href="engineer.html">エンジニアメリット</a>
               <a href="recruit.html">エンジニア募集要項</a>
             </nav>
             <nav class="footer-nav" aria-label="フッターナビゲーション 2">
               <a href="investor.html">投資企業メリット</a>
               <a href="projects.html">プロジェクト事例紹介</a>
-              <a href="news.html">ニュース</a>
               <a href="faq.html">よくある質問</a>
               <a href="company.html">財団情報</a>
               <a href="contact.html">お問い合わせ</a>
