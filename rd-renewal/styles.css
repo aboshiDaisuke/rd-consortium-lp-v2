@@ -470,7 +470,6 @@ main, .site-footer { position: relative; z-index: 1; }
 .page-hero::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
   background:
-    repeating-radial-gradient(circle at 88% -20%, rgba(146, 152, 210, 0.16) 0 1.5px, rgba(0,0,0,0) 1.5px 56px),
     radial-gradient(600px 420px at 90% 0%, rgba(86, 94, 170, 0.5), rgba(0,0,0,0) 68%),
     radial-gradient(520px 420px at 4% 110%, rgba(79, 195, 221, 0.22), rgba(0,0,0,0) 60%);
 }
@@ -981,7 +980,6 @@ main, .site-footer { position: relative; z-index: 1; }
 .investor-panel::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
   background:
-    repeating-radial-gradient(circle at 92% -10%, rgba(146, 152, 210, 0.14) 0 1.5px, rgba(0,0,0,0) 1.5px 48px),
     radial-gradient(560px 420px at 92% 0%, rgba(86, 94, 170, 0.45), rgba(0,0,0,0) 66%);
 }
 .investor-panel h2 { margin: 0 0 16px; font-family: var(--font-serif); font-weight: 600; font-size: clamp(24px, 3.2vw, 38px); line-height: 1.5; letter-spacing: .04em; }
@@ -1229,10 +1227,6 @@ textarea { resize: vertical; }
   background: linear-gradient(150deg, #10142c, #171d40 60%, #1b2148);
   color: #fff;
   position: relative; overflow: hidden; isolation: isolate;
-}
-.site-footer::before {
-  content: ""; position: absolute; inset: 0; z-index: -1;
-  background: repeating-radial-gradient(circle at 92% 120%, rgba(146, 152, 210, 0.10) 0 1.5px, rgba(0,0,0,0) 1.5px 52px);
 }
 .footer-inner {
   display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
