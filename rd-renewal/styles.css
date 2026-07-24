@@ -792,6 +792,11 @@ main, .site-footer { position: relative; z-index: 1; }
 .org-caption { margin: 20px auto 0; max-width: 720px; text-align: center; font-size: .8rem; color: var(--muted); letter-spacing: .06em; }
 
 /* エンジニア募集バナー（ニュース直下） */
+.section--banner {
+  margin-top: clamp(-72px, -5vw, -24px);
+  padding-top: 0;
+  padding-bottom: clamp(36px, 5vw, 64px);
+}
 .recruit-banner {
   position: relative; display: block;
   border-radius: var(--radius-lg); overflow: hidden;
