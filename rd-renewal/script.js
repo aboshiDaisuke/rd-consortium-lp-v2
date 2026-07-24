@@ -6,6 +6,23 @@
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // ヒーロー背景動画（自動再生 / 低モーション対応）
+  const heroVideo = document.querySelector(".hero-video");
+  if (heroVideo instanceof HTMLVideoElement) {
+    if (prefersReducedMotion) {
+      heroVideo.pause();
+      heroVideo.removeAttribute("autoplay");
+    } else {
+      const play = () => {
+        heroVideo.play().catch(() => {
+          /* autoplay ブロック時は poster のまま */
+        });
+      };
+      if (heroVideo.readyState >= 2) play();
+      else heroVideo.addEventListener("loadeddata", play, { once: true });
+    }
+  }
+
   // ハンバーガーメニュー開閉
   const menuButton = document.querySelector(".menu-button");
   const globalNav = document.querySelector(".global-nav");
