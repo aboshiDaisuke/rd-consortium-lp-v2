@@ -23,6 +23,76 @@
     }
   }
 
+  /* ============================================================
+     背景「氷の渦」— HAL名古屋風モザイク（吸い込みアニメ）
+     ============================================================ */
+  function buildIceVortex(target) {
+    const size = 1400;
+    const cx = size / 2;
+    const cy = size / 2;
+    const rings = 22;
+    const maxR = size / 2;
+    const maxTiles = 480;
+    let tiles = "";
+    let tileCount = 0;
+
+    for (let r = 1; r <= rings && tileCount < maxTiles; r += 1) {
+      const radius = (r / rings) * maxR;
+      const circumference = 2 * Math.PI * radius;
+      const tileSize = 6 + r * 1.1;
+      const count = Math.max(6, Math.floor(circumference / (tileSize * 2.2)));
+      const opacity = 0.1 + (r / rings) * 0.28;
+
+      for (let i = 0; i < count && tileCount < maxTiles; i += 1) {
+        const angle = (i / count) * Math.PI * 2 + r * 0.15;
+        const x = cx + Math.cos(angle) * radius;
+        const y = cy + Math.sin(angle) * radius;
+        const rot = (angle * 180) / Math.PI;
+        tiles += `<rect x="${(-tileSize / 2).toFixed(1)}" y="${(-tileSize / 2).toFixed(1)}" width="${tileSize.toFixed(1)}" height="${tileSize.toFixed(1)}" rx="${(tileSize * 0.22).toFixed(1)}" fill="#bdd6f5" opacity="${opacity.toFixed(2)}" transform="translate(${x.toFixed(1)},${y.toFixed(1)}) rotate(${rot.toFixed(1)})" />`;
+        tileCount += 1;
+      }
+    }
+
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}">${tiles}</svg>`;
+    target.style.backgroundImage = `url("data:image/svg+xml;utf8,${encodeURIComponent(svg)}")`;
+  }
+
+  function initMotionBackground() {
+    const root = document.querySelector(".motion-bg");
+    if (!root || root.dataset.enhanced === "1") return;
+    root.dataset.enhanced = "1";
+    root.innerHTML = "";
+
+    // 吸い込みループ用に同一渦を2層 + 逆回転1層
+    const vortexA = document.createElement("div");
+    vortexA.className = "motion-vortex motion-vortex--a";
+    const vortexB = document.createElement("div");
+    vortexB.className = "motion-vortex motion-vortex--b";
+    const vortexC = document.createElement("div");
+    vortexC.className = "motion-vortex motion-vortex--c";
+    root.appendChild(vortexA);
+    root.appendChild(vortexB);
+    root.appendChild(vortexC);
+    buildIceVortex(vortexA);
+    // 同じSVGを共有（再生成コストを避ける）
+    const bg = vortexA.style.backgroundImage;
+    vortexB.style.backgroundImage = bg;
+    vortexC.style.backgroundImage = bg;
+
+    // 中心へ収束する同心リング
+    const flowA = document.createElement("div");
+    flowA.className = "motion-flow";
+    const flowB = document.createElement("div");
+    flowB.className = "motion-flow motion-flow--b";
+    root.appendChild(flowA);
+    root.appendChild(flowB);
+
+    // 中心グロー
+    const core = document.createElement("div");
+    core.className = "motion-core";
+    root.appendChild(core);
+  }
+
   // ハンバーガーメニュー開閉
   const menuButton = document.querySelector(".menu-button");
   const globalNav = document.querySelector(".global-nav");
@@ -104,31 +174,10 @@
     counters.forEach((counter) => observer.observe(counter));
   }
 
-  // 背景図形にごく弱い奥行きを加える
-  function initAmbientParallax() {
-    if (prefersReducedMotion) return;
-    const wires = document.querySelectorAll(".wire");
-    if (!wires.length) return;
-
-    let queued = false;
-    const update = () => {
-      wires.forEach((wire, index) => {
-        const rate = 0.018 + index * 0.012;
-        wire.style.translate = `0 ${Math.round(window.scrollY * rate)}px`;
-      });
-      queued = false;
-    };
-
-    window.addEventListener("scroll", () => {
-      if (queued) return;
-      queued = true;
-      requestAnimationFrame(update);
-    }, { passive: true });
-    update();
-  }
-
-  document.addEventListener("DOMContentLoaded", initStructureCounts);
-  document.addEventListener("DOMContentLoaded", initAmbientParallax);
+  document.addEventListener("DOMContentLoaded", () => {
+    initMotionBackground();
+    initStructureCounts();
+  });
 
   // 静的HTML版でも、導線元に応じて共通フォームの種別と対象名を引き継ぐ
   const params = new URLSearchParams(window.location.search);
