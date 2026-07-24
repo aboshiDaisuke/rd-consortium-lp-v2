@@ -377,7 +377,7 @@ main, .site-footer { position: relative; z-index: 1; }
 }
 .hero-media img {
   width: 100%; height: min(74vh, 760px); min-height: 560px;
-  object-fit: cover; object-position: center;
+  object-fit: cover; object-position: 72% 22%;
   filter: saturate(1.02);
 }
 .hero-media::after {
