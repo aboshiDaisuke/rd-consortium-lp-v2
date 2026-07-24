@@ -31,10 +31,10 @@
 				<nav class="footer-nav" aria-label="フッターナビゲーション 2">
 					<?php
 					rd_nav_link( 'investor', '投資企業メリット' );
-					rd_nav_link( 'projects', 'プロジェクト事例' );
+					rd_nav_link( 'projects', 'プロジェクト事例紹介' );
 					rd_nav_link( 'news', 'ニュース' );
 					rd_nav_link( 'faq', 'よくある質問' );
-					rd_nav_link( 'company', '組織情報' );
+					rd_nav_link( 'company', '財団情報' );
 					rd_nav_link( 'contact', 'お問い合わせ' );
 					?>
 				</nav>

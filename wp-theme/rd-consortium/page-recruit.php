@@ -4,8 +4,8 @@ get_header();
 ?>
 <main id="main">
 	<div class="page-hero">
-		<p class="breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">トップ</a> / <a href="<?php echo esc_url( home_url( '/engineer/' ) ); ?>">エンジニアの方</a> / 募集要項</p>
-		<p class="page-hero-eyebrow">Recruit<span class="jp">募集要項</span></p>
+		<p class="breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">トップ</a> / <a href="<?php echo esc_url( home_url( '/engineer/' ) ); ?>">エンジニアメリット</a> / エンジニア募集要項</p>
+		<p class="page-hero-eyebrow">Recruit<span class="jp">エンジニア募集要項</span></p>
 		<h1>R&amp;Dプロジェクト<br>エンジニア募集</h1>
 		<p>実需ベースの現場課題を解決するため、技術・製品の研究開発に参画いただくエンジニアを募集しています。</p>
 	</div>
@@ -21,6 +21,6 @@ get_header();
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); if ( trim( get_the_content() ) ) : ?><div class="card job-detail-block recruitment-editor-content"><?php the_content(); ?></div><?php endif; endwhile; endif; ?>
 		</div>
 	</section>
-	<section class="section reveal"><div class="contact-panel" style="grid-template-columns:1fr;"><div><small>Entry</small><h2>エンジニアとしてエントリーする</h2><p>メールフォームはお問い合わせページに一本化しています。リンク先では「エンジニア応募」が選択された状態になります。</p><div class="pill-row" style="margin-top:22px;"><a class="pill pill-primary" href="<?php echo esc_url( add_query_arg( array( 'type' => 'engineer', 'subject' => 'rd-engineer' ), home_url( '/contact/' ) ) ); ?>">エントリーフォームへ <span class="arrow-circle">→</span></a><a class="pill pill-outline" href="<?php echo esc_url( home_url( '/engineer/' ) ); ?>">参加メリットへ戻る <span class="arrow-circle">→</span></a></div></div></div></section>
+	<section class="section reveal"><div class="contact-panel" style="grid-template-columns:1fr;"><div><small>Entry</small><h2>エンジニアとしてエントリーする</h2><p>メールフォームはお問い合わせページに一本化しています。リンク先では「エンジニア応募」が選択された状態になります。</p><div class="pill-row" style="margin-top:22px;"><a class="pill pill-primary" href="<?php echo esc_url( add_query_arg( array( 'type' => 'engineer', 'subject' => 'rd-engineer' ), home_url( '/contact/' ) ) ); ?>">エントリーフォームへ <span class="arrow-circle">→</span></a><a class="pill pill-outline" href="<?php echo esc_url( home_url( '/engineer/' ) ); ?>">エンジニアメリットへ戻る <span class="arrow-circle">→</span></a></div></div></div></section>
 </main>
 <?php get_footer(); ?>

@@ -10,8 +10,8 @@ get_header();
 
 <main id="main">
 	<div class="page-hero">
-		<p class="breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">トップ</a> / 投資企業の方</p>
-		<p class="page-hero-eyebrow">Investor<span class="jp">投資企業の方へ</span></p>
+		<p class="breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">トップ</a> / 投資企業メリット</p>
+		<p class="page-hero-eyebrow">Investor<span class="jp">投資企業メリット</span></p>
 		<h1>自社だけでは賄いきれない開発費・人材費を、<br>共同出資で軽くする。</h1>
 		<p>複数企業と共同で研究開発資金を拠出することで、リスクを抑えながら技術開発を進めることができます。開発成果は製品化、OEM供給、共同事業化などへ展開できます。</p>
 	</div>
@@ -61,7 +61,7 @@ get_header();
 				<p>現場課題のご相談、プロジェクトへのご参画は、共通お問い合わせフォームで「投資企業相談」を選択してお送りください。</p>
 				<div class="pill-row" style="margin-top:22px;">
 					<a class="pill pill-dark" href="<?php echo esc_url( add_query_arg( 'type', 'investor', home_url( '/contact/' ) ) ); ?>">投資企業として相談する <span class="arrow-circle">→</span></a>
-					<a class="pill pill-outline" href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ?: home_url( '/projects/' ) ); ?>">プロジェクト事例を見る <span class="arrow-circle">→</span></a>
+					<a class="pill pill-outline" href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ?: home_url( '/projects/' ) ); ?>">プロジェクト事例紹介を見る <span class="arrow-circle">→</span></a>
 				</div>
 			</div>
 		</div>

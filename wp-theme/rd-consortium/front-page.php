@@ -194,7 +194,7 @@ $tpl = get_template_directory_uri();
 
 	<section id="projects" class="section project-showcase reveal" aria-labelledby="project-showcase-title">
 		<div class="sec-head">
-			<p class="sec-label">Projects<span class="jp">プロジェクト事例</span></p>
+			<p class="sec-label">Projects<span class="jp">プロジェクト事例紹介</span></p>
 			<h2 class="sec-title" id="project-showcase-title">課題を、<span class="grad-text">動くプロジェクト</span>へ。</h2>
 			<p class="sec-lead">現場の困りごとや事業アイデアを起点に、必要な知見を持つメンバーが集まり、技術検証と事業化を進めます。</p>
 		</div>
@@ -249,7 +249,7 @@ $tpl = get_template_directory_uri();
 				</article>
 			<?php endif; ?>
 		</div>
-		<div class="project-all-link"><a class="pill pill-outline" href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ?: home_url( '/projects/' ) ); ?>">プロジェクト事例一覧 <span class="arrow-circle">→</span></a></div>
+		<div class="project-all-link"><a class="pill pill-outline" href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ?: home_url( '/projects/' ) ); ?>">プロジェクト事例紹介一覧 <span class="arrow-circle">→</span></a></div>
 	</section>
 
 	<section class="section reveal" aria-labelledby="join-title">
@@ -272,13 +272,13 @@ $tpl = get_template_directory_uri();
 			</article>
 			<article class="card audience-card">
 				<small>Projects</small>
-				<h3>プロジェクト事例</h3>
+				<h3>プロジェクト事例紹介</h3>
 				<p>参画企業とエンジニアが共同で進める研究開発テーマと成果をご紹介します。</p>
 				<a class="pill pill-outline" href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ?: home_url( '/projects/' ) ); ?>">事例を見る <span class="arrow-circle">→</span></a>
 			</article>
 			<article class="card audience-card">
 				<small>FAQ</small>
-				<h3>よくあるご質問</h3>
+				<h3>よくある質問</h3>
 				<p>投資企業・エンジニアそれぞれからよく寄せられるご質問にお答えしています。</p>
 				<a class="pill pill-outline" href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">Q&amp;Aを見る <span class="arrow-circle">→</span></a>
 			</article>

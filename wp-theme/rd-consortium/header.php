@@ -26,10 +26,10 @@
 <header class="site-header">
 	<div class="header-meta" aria-label="補助リンク">
 		<?php
-		rd_nav_link( 'investor', '投資企業の方' );
-		rd_nav_link( 'engineer', 'エンジニアの方' );
+		rd_nav_link( 'investor', '投資企業メリット' );
+		rd_nav_link( 'engineer', 'エンジニアメリット' );
 		rd_nav_link( 'faq', 'よくある質問' );
-		rd_nav_link( 'company', '組織情報' );
+		rd_nav_link( 'company', '財団情報' );
 		rd_nav_link( 'contact', 'お問い合わせ' );
 		?>
 	</div>

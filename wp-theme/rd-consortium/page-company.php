@@ -1,6 +1,6 @@
 <?php
 /**
- * 組織情報ページ（スラッグ: company）
+ * 財団情報ページ（スラッグ: company）
  *
  * @package rd-consortium
  */
@@ -10,8 +10,8 @@ get_header();
 
 <main id="main">
 	<div class="page-hero">
-		<p class="breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">トップ</a> / 組織情報</p>
-		<p class="page-hero-eyebrow">Company<span class="jp">組織情報</span></p>
+		<p class="breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">トップ</a> / 財団情報</p>
+		<p class="page-hero-eyebrow">Company<span class="jp">財団情報</span></p>
 		<h1>一般社団法人 テクノサプライ</h1>
 		<p>R&D コンソーシアムの運営法人および、関連会社のご紹介です。</p>
 	</div>
@@ -19,7 +19,7 @@ get_header();
 	<section class="section reveal" aria-labelledby="profile-title">
 		<div class="sec-head">
 			<p class="sec-label">Profile</p>
-			<h2 class="sec-title" id="profile-title">組織概要</h2>
+			<h2 class="sec-title" id="profile-title">財団概要</h2>
 		</div>
 		<div class="company-grid">
 			<dl class="card">

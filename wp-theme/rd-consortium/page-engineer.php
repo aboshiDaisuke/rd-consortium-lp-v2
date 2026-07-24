@@ -4,8 +4,8 @@ get_header();
 ?>
 <main id="main">
 	<div class="page-hero">
-		<p class="breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">トップ</a> / エンジニアの方</p>
-		<p class="page-hero-eyebrow">Engineer<span class="jp">参加メリット</span></p>
+		<p class="breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">トップ</a> / エンジニアメリット</p>
+		<p class="page-hero-eyebrow">Engineer<span class="jp">エンジニアメリット</span></p>
 		<h1>経験と技術を、<br>次のプロジェクトへ。</h1>
 		<p>本業を持つエンジニアや定年退職した技術者が、空き時間と専門性を活かして研究開発に参加できる仕組みです。</p>
 	</div>

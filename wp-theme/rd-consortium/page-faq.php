@@ -11,8 +11,8 @@ get_header();
 <main id="main">
 	<div class="page-hero">
 		<p class="breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">トップ</a> / よくある質問</p>
-		<p class="page-hero-eyebrow">FAQ<span class="jp">よくあるご質問</span></p>
-		<h1>投資企業・エンジニアの<br>よくあるご質問</h1>
+		<p class="page-hero-eyebrow">FAQ<span class="jp">よくある質問</span></p>
+		<h1>投資企業・エンジニアの<br>よくある質問</h1>
 		<p>それぞれの立場からよく寄せられるご質問にお答えします。掲載のない内容は、お問い合わせフォームよりご相談ください。</p>
 	</div>
 

@@ -24,7 +24,7 @@ get_header();
 				<p>応募、投資企業相談、一般のお問い合わせを1つのフォームで受け付けます。お問い合わせ種別を選んでご入力ください。</p>
 				<div class="pill-row" style="margin-top:22px; flex-direction:column;">
 					<a class="pill pill-outline" href="<?php echo esc_url( home_url( '/recruit/' ) ); ?>">募集要項を確認する <span class="arrow-circle">→</span></a>
-					<a class="pill pill-outline" href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ?: home_url( '/projects/' ) ); ?>">プロジェクト事例を見る <span class="arrow-circle">→</span></a>
+					<a class="pill pill-outline" href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ?: home_url( '/projects/' ) ); ?>">プロジェクト事例紹介を見る <span class="arrow-circle">→</span></a>
 				</div>
 			</div>
 			<?php // フォームプラグイン導入時はここをショートコードに置き換え ?>
@@ -68,9 +68,9 @@ get_header();
 			</div>
 			<div class="card company-note">
 				<h3>運営法人について</h3>
-				<p>R&D コンソーシアムは一般社団法人テクノサプライが運営しています。所在地・関連会社などの詳細は組織情報をご覧ください。</p>
+				<p>R&D コンソーシアムは一般社団法人テクノサプライが運営しています。所在地・関連会社などの詳細は財団情報をご覧ください。</p>
 				<div class="pill-row" style="margin-top:18px;">
-					<a class="pill pill-white" href="<?php echo esc_url( home_url( '/company/' ) ); ?>">組織情報を見る <span class="arrow-circle">→</span></a>
+					<a class="pill pill-white" href="<?php echo esc_url( home_url( '/company/' ) ); ?>">財団情報を見る <span class="arrow-circle">→</span></a>
 				</div>
 			</div>
 		</div>

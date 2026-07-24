@@ -1,11 +1,11 @@
 <?php
-/** プロジェクト事例一覧（構成案: wordpress③） */
+/** プロジェクト事例紹介一覧（構成案: wordpress③） */
 get_header();
 ?>
 <main id="main">
 	<div class="page-hero">
-		<p class="breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">トップ</a> / プロジェクト事例</p>
-		<p class="page-hero-eyebrow">Projects<span class="jp">プロジェクト事例</span></p>
+		<p class="breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">トップ</a> / プロジェクト事例紹介</p>
+		<p class="page-hero-eyebrow">Projects<span class="jp">プロジェクト事例紹介</span></p>
 		<h1>現場課題から生まれる、<br>研究開発の取り組み。</h1>
 		<p>参画企業とエンジニアが共同で進める、R&amp;Dプロジェクトのテーマと成果をご紹介します。</p>
 	</div>

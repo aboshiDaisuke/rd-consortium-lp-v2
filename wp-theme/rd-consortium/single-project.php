@@ -1,11 +1,11 @@
 <?php
-/** プロジェクト事例詳細（構成案: wordpress③） */
+/** プロジェクト事例紹介詳細（構成案: wordpress③） */
 get_header();
 ?>
 <main id="main">
 	<?php while ( have_posts() ) : the_post(); ?>
 	<div class="page-hero">
-		<p class="breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">トップ</a> / <a href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ); ?>">プロジェクト事例</a> / <?php the_title(); ?></p>
+		<p class="breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">トップ</a> / <a href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ); ?>">プロジェクト事例紹介</a> / <?php the_title(); ?></p>
 		<p class="page-hero-eyebrow">Project<span class="jp">プロジェクト詳細</span></p>
 		<div class="content-card-meta"><?php rd_cat_badge(); ?></div><h1><?php the_title(); ?></h1>
 		<?php if ( has_excerpt() ) : ?><p><?php echo esc_html( get_the_excerpt() ); ?></p><?php endif; ?>
