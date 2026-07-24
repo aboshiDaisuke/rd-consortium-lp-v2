@@ -790,6 +790,30 @@ main, .site-footer { position: relative; z-index: 1; }
 .org-flow--invest { color: var(--primary-deep); }
 .org-flow--invest::after { right: 0; border-left: 9px solid currentColor; }
 .org-caption { margin: 20px auto 0; max-width: 720px; text-align: center; font-size: .8rem; color: var(--muted); letter-spacing: .06em; }
+
+/* エンジニア募集バナー（ニュース直下） */
+.recruit-banner {
+  position: relative; display: block;
+  max-width: 980px; margin: 0 auto;
+  border-radius: var(--radius-lg); overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out);
+}
+.recruit-banner:hover { transform: translateY(-4px); box-shadow: 0 26px 64px rgba(28, 34, 78, 0.24); }
+.recruit-banner video { display: block; width: 100%; height: auto; }
+.recruit-banner-cta {
+  position: absolute; right: clamp(14px, 2.5vw, 28px); bottom: clamp(14px, 2.5vw, 28px);
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 11px 22px; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94); color: var(--primary-deep);
+  font-size: 13.5px; font-weight: 700; letter-spacing: .06em;
+  box-shadow: 0 8px 24px rgba(18, 23, 47, 0.28);
+  transition: transform .3s var(--ease-out);
+}
+.recruit-banner:hover .recruit-banner-cta { transform: translateX(3px); }
+@media (max-width: 620px) {
+  .recruit-banner-cta { padding: 8px 16px; font-size: 12px; }
+}
 @media (max-width: 620px) {
   .org-diagram { grid-template-columns: 1fr minmax(84px, 1fr) 1fr; gap: 10px; padding: 34px 12px 18px; }
   .org-node { padding: 12px 6px; border-width: 2px; }

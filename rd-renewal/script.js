@@ -6,8 +6,8 @@
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // 背景動画（ヒーロー / エコシステム / ステートメント帯）自動再生・低モーション対応
-  document.querySelectorAll(".hero-video, .ecosystem-video, .statement-video").forEach((video) => {
+  // 背景動画（ヒーロー / エコシステム / ステートメント帯 / 募集バナー）自動再生・低モーション対応
+  document.querySelectorAll(".hero-video, .ecosystem-video, .statement-video, .banner-video").forEach((video) => {
     if (!(video instanceof HTMLVideoElement)) return;
     if (prefersReducedMotion) {
       video.pause();
