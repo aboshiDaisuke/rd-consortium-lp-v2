@@ -418,16 +418,16 @@ main, .site-footer { position: relative; z-index: 1; }
 .section { width: min(1120px, calc(100% - 48px)); margin: 0 auto; padding: clamp(64px, 9vw, 130px) 0; }
 .section--tight { padding-top: clamp(32px, 5vw, 56px); }
 
-/* ===== セクション見出し: 英ラベル + 明朝タイトル ===== */
+/* ===== セクション見出し: 日本語ラベル主体（サイトマップ名と一致）＋ 小さな英字 ===== */
 .sec-head { margin-bottom: clamp(30px, 5vw, 52px); }
 .sec-label {
-  display: flex; align-items: center; gap: 14px;
+  display: flex; align-items: baseline; gap: 14px;
   margin: 0 0 18px;
-  font-family: var(--font-en); font-size: 12.5px; font-weight: 600; letter-spacing: .28em;
-  color: var(--primary);
-  text-transform: uppercase;
+  font-family: var(--font-sans); font-size: 15.5px; font-weight: 800; letter-spacing: .14em;
+  color: var(--primary-deep);
 }
-.sec-label::before { content: ""; width: 34px; height: 1px; background: var(--primary); flex-shrink: 0; }
+.sec-label::before { content: ""; width: 34px; height: 2px; background: var(--primary); flex-shrink: 0; align-self: center; }
+.sec-label .en { font-family: var(--font-en); font-size: 11px; font-weight: 600; letter-spacing: .28em; color: var(--primary); text-transform: uppercase; }
 .sec-label .jp { font-family: var(--font-sans); font-size: 11.5px; font-weight: 500; letter-spacing: .18em; color: var(--muted); }
 .sec-title {
   margin: 0;
@@ -477,12 +477,13 @@ main, .site-footer { position: relative; z-index: 1; }
 .breadcrumb a { color: rgba(255,255,255,.8); transition: color .2s; }
 .breadcrumb a:hover { color: #fff; text-decoration: underline; }
 .page-hero-eyebrow {
-  display: flex; align-items: center; gap: 14px;
+  display: flex; align-items: baseline; gap: 14px;
   margin: 0 0 16px;
-  font-family: var(--font-en); font-size: 12.5px; font-weight: 600; letter-spacing: .28em;
-  color: var(--primary-soft); text-transform: uppercase;
+  font-family: var(--font-sans); font-size: 15px; font-weight: 800; letter-spacing: .14em;
+  color: #fff;
 }
-.page-hero-eyebrow::before { content: ""; width: 34px; height: 1px; background: var(--primary-soft); }
+.page-hero-eyebrow::before { content: ""; width: 34px; height: 2px; background: var(--primary-soft); align-self: center; flex-shrink: 0; }
+.page-hero-eyebrow .en { font-family: var(--font-en); font-size: 11px; font-weight: 600; letter-spacing: .28em; color: var(--primary-soft); text-transform: uppercase; }
 .page-hero-eyebrow .jp { font-family: var(--font-sans); font-size: 11.5px; font-weight: 500; letter-spacing: .18em; color: rgba(255,255,255,.62); }
 .page-hero h1 {
   margin: 0 0 18px;
@@ -789,6 +790,35 @@ main, .site-footer { position: relative; z-index: 1; }
 .org-flow--invest { color: var(--primary-deep); }
 .org-flow--invest::after { right: 0; border-left: 9px solid currentColor; }
 .org-caption { margin: 20px auto 0; max-width: 720px; text-align: center; font-size: .8rem; color: var(--muted); letter-spacing: .06em; }
+
+/* Aboutセクション（コンセプト＋映像＋組織図の統合） */
+.about-split { margin-bottom: clamp(20px, 4vw, 40px); }
+.about-split .concept-formula { margin: 26px 0 0; }
+.concept-formula span { display: inline-flex; align-items: center; gap: 8px; }
+.concept-formula span svg { flex-shrink: 0; color: var(--primary); }
+.org-icon { color: var(--primary-deep); }
+.org-node--engineer .org-icon { color: var(--primary); }
+
+/* よくある質問：リンクカード */
+.faq-links { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.faq-link {
+  display: flex; align-items: center; gap: 18px;
+  padding: clamp(22px, 3vw, 30px) clamp(20px, 3vw, 30px);
+  transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out);
+}
+.faq-link:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.faq-link-icon {
+  display: grid; place-items: center; flex-shrink: 0;
+  width: 54px; height: 54px; border-radius: 14px;
+  background: var(--ice); color: var(--primary-deep);
+}
+.faq-link-body { display: grid; gap: 5px; }
+.faq-link-body strong { color: var(--navy); font-size: 16.5px; letter-spacing: .04em; }
+.faq-link-body span { color: var(--muted); font-size: 13.5px; line-height: 1.7; }
+.faq-link .arrow-circle { margin-left: auto; flex-shrink: 0; }
+@media (max-width: 780px) {
+  .faq-links { grid-template-columns: 1fr; }
+}
 
 /* エンジニア募集バナー（ニュース直下） */
 .section--banner {
