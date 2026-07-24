@@ -851,10 +851,35 @@ details p::before {
 .group-companies { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .group-companies article { padding: 28px 26px; transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out); }
 .group-companies article:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
-.group-companies h3 { margin: 0 0 2px; font-size: 17.5px; color: var(--navy); letter-spacing: .04em; }
-.group-companies .en { display: block; margin: 0 0 14px; font-family: var(--font-en); font-size: .68rem; color: var(--primary); letter-spacing: .18em; text-transform: uppercase; }
-.group-companies dl { margin: 0; font-size: .84rem; color: var(--muted); display: grid; gap: 5px; }
-.group-companies a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+.group-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.group-title { min-width: 0; flex: 1; }
+.group-companies h3 { margin: 0 0 2px; font-size: 17.5px; color: var(--navy); letter-spacing: .04em; line-height: 1.35; }
+.group-companies .en { display: block; margin: 0; font-family: var(--font-en); font-size: .68rem; color: var(--primary); letter-spacing: .18em; text-transform: uppercase; }
+.group-companies dl { margin: 0; font-size: .84rem; color: var(--muted); display: grid; gap: 5px; min-width: 0; }
+.group-companies dl a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; word-break: break-all; }
+.group-qr {
+  flex-shrink: 0;
+  line-height: 0;
+  text-decoration: none;
+}
+.group-qr img {
+  width: 72px;
+  height: 72px;
+  padding: 5px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+.group-qr:hover img { border-color: var(--primary-soft); box-shadow: var(--shadow); }
 
 .activity-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .activity-grid article { position: relative; padding: 28px 26px; overflow: hidden; }
