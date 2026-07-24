@@ -21,6 +21,11 @@ get_header();
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); if ( trim( get_the_content() ) ) : ?><div class="card job-detail-block recruitment-editor-content"><?php the_content(); ?></div><?php endif; endwhile; endif; ?>
 		</div>
 	</section>
+	<section class="section section--tight reveal" aria-label="開発ルームの様子">
+		<figure class="photo-band photo-band--single">
+			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/photos/recruit-devroom.webp' ); ?>" alt="デュアルモニターを備えた開発ルーム" width="1400" height="934" loading="lazy">
+		</figure>
+	</section>
 	<section class="section reveal"><div class="contact-panel" style="grid-template-columns:1fr;"><div><small>Entry</small><h2>エンジニアとしてエントリーする</h2><p>メールフォームはお問い合わせページに一本化しています。リンク先では「エンジニア応募」が選択された状態になります。</p><div class="pill-row" style="margin-top:22px;"><a class="pill pill-primary" href="<?php echo esc_url( add_query_arg( array( 'type' => 'engineer', 'subject' => 'rd-engineer' ), home_url( '/contact/' ) ) ); ?>">エントリーフォームへ <span class="arrow-circle">→</span></a><a class="pill pill-outline" href="<?php echo esc_url( home_url( '/engineer/' ) ); ?>">エンジニアメリットへ戻る <span class="arrow-circle">→</span></a></div></div></div></section>
 </main>
 <?php get_footer(); ?>

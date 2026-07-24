@@ -15,6 +15,11 @@ get_header();
 			<ol class="flow-list"><li>募集要項を確認</li><li>エントリー</li><li>スキル・条件確認</li><li>プロジェクト参画</li><li>成果に応じた還元</li></ol>
 		</div>
 	</section>
+	<section class="section section--tight reveal" aria-label="開発の様子">
+		<figure class="photo-band photo-band--single">
+			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/photos/engineer-team.webp' ); ?>" alt="開発ルームで並んで設計に取り組むエンジニアたち" width="1400" height="934" loading="lazy">
+		</figure>
+	</section>
 	<section class="section section--tight reveal" aria-labelledby="merit-title">
 		<div class="sec-head"><p class="sec-label">Merit</p><h2 class="sec-title" id="merit-title">エンジニアとして参加するメリット</h2></div>
 		<div class="merit-grid">
@@ -29,6 +34,12 @@ get_header();
 			<div class="card job-detail-block"><h3>本業をお持ちの方</h3><p>所属企業の副業規定を確認したうえで、平日夜間や休日を中心にプロジェクトへ参加できます。</p></div>
 			<div class="card job-detail-block"><h3>定年退職された技術者の方</h3><p>長年培った専門知識や現場経験を、次世代の研究開発や若手エンジニアとの協働に活かせます。</p></div>
 			<div class="card job-detail-block"><h3>専門領域を広げたい方</h3><p>専門性を発揮しながら、隣接分野への理解も深められます。</p></div>
+		</div>
+	</section>
+	<section class="section section--tight reveal" aria-label="仕事風景">
+		<div class="photo-band photo-band--duo">
+			<figure><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/photos/engineer-panel-assembly.webp' ); ?>" alt="制御盤を組み立てる技術者の手元" width="1200" height="800" loading="lazy"></figure>
+			<figure><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/photos/engineer-cad.webp' ); ?>" alt="CAD画面で回路設計を行うエンジニア" width="1200" height="800" loading="lazy"></figure>
 		</div>
 	</section>
 	<section class="section reveal"><div class="contact-panel" style="grid-template-columns:1fr;"><div><small>Recruit</small><h2>現在の募集要項を確認する</h2><p>募集職種、業務内容、応募資格、報酬の考え方をご確認のうえ、共通フォームからエントリーしてください。</p><div class="pill-row" style="margin-top:22px;"><a class="pill pill-primary" href="<?php echo esc_url( home_url( '/recruit/' ) ); ?>">募集要項を見る <span class="arrow-circle">→</span></a><a class="pill pill-outline" href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">よくある質問を見る <span class="arrow-circle">→</span></a></div></div></div></section>

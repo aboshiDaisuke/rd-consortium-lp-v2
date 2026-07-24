@@ -63,6 +63,9 @@ get_header();
 				</div>
 			</dl>
 			<div class="card company-note">
+				<figure class="company-note-photo">
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/photos/company-meeting.webp' ); ?>" alt="社屋2階のミーティングスペース" width="1000" height="667" loading="lazy">
+				</figure>
 				<h3>地域と技術をつなぐ活動</h3>
 				<p>地域社会貢献活動、障害者支援、近隣小学校への寄付など、技術開発にとどまらない社会との接点も大切にしています。</p>
 			</div>
@@ -75,10 +78,9 @@ get_header();
 			<h2 class="sec-title" id="access-title">アクセス</h2>
 		</div>
 		<div class="access-panel card">
-			<div class="access-map" aria-hidden="true">
-				<span class="access-pin"></span>
-				<span class="access-map-label">TECHNO SUPPLY</span>
-			</div>
+			<figure class="access-map access-map--photo">
+				<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/photos/company-atrium.webp' ); ?>" alt="吹き抜けと螺旋階段のある社屋内観" width="1400" height="934" loading="lazy">
+			</figure>
 			<div class="access-copy">
 				<p class="access-kicker">Office Location</p>
 				<h3>一般社団法人 テクノサプライ</h3>

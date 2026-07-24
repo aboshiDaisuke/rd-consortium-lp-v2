@@ -32,6 +32,12 @@ get_header();
 		</div>
 	</section>
 
+	<section class="section section--tight reveal" aria-label="開発現場の様子">
+		<figure class="photo-band photo-band--single">
+			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/photos/investor-office.webp' ); ?>" alt="オフィスで開発業務にあたるエンジニアたち" width="1400" height="934" loading="lazy">
+		</figure>
+	</section>
+
 	<section class="section section--tight reveal" aria-labelledby="merit-title">
 		<div class="sec-head">
 			<p class="sec-label">Merit</p>

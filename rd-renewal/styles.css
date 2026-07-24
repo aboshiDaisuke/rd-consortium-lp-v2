@@ -965,6 +965,22 @@ textarea { resize: vertical; }
 /* ============================================================
    レスポンシブ
    ============================================================ */
+/* ===== 実写フォト（photo_img由来） ===== */
+.audience-visual { margin: 0 0 4px; }
+.audience-visual img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 12px; }
+.content-card-visual { position: relative; }
+.content-card-visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.photo-band, .photo-band figure { margin: 0; }
+.photo-band { display: grid; gap: 16px; }
+.photo-band--duo { grid-template-columns: 1fr 1fr; }
+.photo-band img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow-sm); }
+.photo-band--single img { aspect-ratio: 21 / 9; object-position: 50% 30%; border-radius: var(--radius-lg); }
+.access-map--photo { margin: 0; padding: 0; }
+.access-map--photo::before, .access-map--photo::after { content: none; }
+.access-map--photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.company-note-photo { margin: 0 0 18px; }
+.company-note-photo img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; }
+
 @media (max-width: 1120px) {
   .global-nav a { font-size: 12.5px; padding: 0 8px; }
 }
@@ -1033,6 +1049,8 @@ textarea { resize: vertical; }
   .company-grid dl div { grid-template-columns: 1fr; gap: 4px; }
   .access-panel { grid-template-columns: 1fr; }
   .access-map { min-height: 300px; }
+  .photo-band--duo { grid-template-columns: 1fr; }
+  .photo-band--single img { aspect-ratio: 16 / 10; }
   .pill-row { flex-direction: column; }
   .pill-row .pill { width: 100%; min-width: 0; }
   .footer-nav-cols { grid-template-columns: 1fr; }
