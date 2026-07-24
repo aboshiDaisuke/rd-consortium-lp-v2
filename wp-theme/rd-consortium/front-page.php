@@ -103,7 +103,7 @@ $tpl = get_template_directory_uri();
 			<p>開発成果は製品化やOEM供給などさまざまな形で事業化され、投資企業にとってはローリスクで活用できる「セカンドラボ」としての機能も期待されています。</p>
 		</div>
 		<div class="split-visual">
-			<img src="<?php echo esc_url( $tpl . '/assets/rd-ecosystem-illust.png' ); ?>" alt="企業とエンジニアが集まり技術を生み出すR&Dエコシステムのイラスト">
+			<img src="<?php echo esc_url( $tpl . '/assets/rd-ecosystem-illust.webp' ); ?>" alt="企業とエンジニアが集まり技術を生み出すR&Dエコシステムのイラスト">
 		</div>
 	</section>
 
