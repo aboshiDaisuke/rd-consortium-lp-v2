@@ -9,7 +9,7 @@
 - `prefers-reduced-motion: reduce` で全演出停止（既存方針を踏襲）
 - JS無効でも全コンテンツ閲覧可（`.js` ガード方式を踏襲）
 - 各フェーズ完了ごとに Lighthouse: Performance / A11y / Best Practices 90+ を確認
-- 静的版（rd-renewal/）で作り込み → 確定後に WPテーマ（wp-theme/rd-consortium/）へ同期。二重管理期間を最小化するため、フェーズ単位で同期する
+- 静的版（ルート直下）で作り込み → 確定後に WPテーマ（wp-theme/rd-consortium/）へ同期。二重管理期間を最小化するため、フェーズ単位で同期する
 - ライブラリ方針: 原則vanilla（IntersectionObserver + rAF）。スクロール連動が複雑化したら GSAP + ScrollTrigger の導入を検討（それ以外のスムーススクロール系・カーソル系ライブラリは酔い/A11y リスクがあるため入れない）
 
 ## Phase 1 — 質感の底上げ（クイックウィン、半日〜1日）
