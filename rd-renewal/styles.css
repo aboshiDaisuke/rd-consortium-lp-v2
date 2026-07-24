@@ -746,6 +746,59 @@ main, .site-footer { position: relative; z-index: 1; }
 }
 .scheme-caption { margin: -14px auto clamp(36px, 6vw, 56px); max-width: 780px; text-align: center; font-size: .8rem; color: var(--muted); letter-spacing: .06em; }
 
+/* 組織編成図（パンフレット中面の ORGANIZATION を再現） */
+.org-diagram {
+  position: relative;
+  display: grid; grid-template-columns: 1fr minmax(110px, 200px) 1fr;
+  gap: clamp(14px, 3.5vw, 42px);
+  align-items: center;
+  max-width: 720px; margin: 26px auto 0;
+  padding: clamp(38px, 6vw, 54px) clamp(20px, 4vw, 44px) clamp(24px, 4vw, 38px);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow-sm);
+}
+.org-frame-label {
+  position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%);
+  padding: 4px 22px;
+  background: var(--paper); border-radius: 999px;
+  color: var(--primary-deep); font-size: clamp(15px, 1.9vw, 19px); font-weight: 900; letter-spacing: .08em;
+  white-space: nowrap;
+}
+.org-node {
+  display: grid; justify-items: center; gap: 5px;
+  padding: clamp(16px, 2.6vw, 24px) clamp(10px, 2vw, 18px);
+  border: 3px solid var(--primary-deep); border-radius: 14px;
+  background: #fff; text-align: center;
+}
+.org-node--engineer { border-color: var(--primary-soft); }
+.org-node small { font-family: var(--font-en); font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--primary); }
+.org-node strong { font-size: clamp(13.5px, 1.8vw, 17px); font-weight: 900; line-height: 1.5; color: var(--navy); letter-spacing: .06em; }
+.org-flows { display: grid; gap: 20px; }
+.org-flow { position: relative; padding-bottom: 12px; text-align: center; font-size: clamp(12px, 1.5vw, 14px); font-weight: 700; letter-spacing: .1em; }
+.org-flow::before {
+  content: ""; position: absolute; left: 2px; right: 2px; bottom: 3px;
+  height: 2px; background: currentColor; border-radius: 2px;
+}
+.org-flow::after {
+  content: ""; position: absolute; bottom: -2px;
+  border-top: 6px solid transparent; border-bottom: 6px solid transparent;
+}
+.org-flow--result { color: var(--primary-soft); }
+.org-flow--result::after { left: 0; border-right: 9px solid currentColor; }
+.org-flow--invest { color: var(--primary-deep); }
+.org-flow--invest::after { right: 0; border-left: 9px solid currentColor; }
+@media (max-width: 620px) {
+  .org-diagram { grid-template-columns: 1fr minmax(84px, 1fr) 1fr; gap: 10px; padding: 34px 12px 18px; }
+  .org-node { padding: 12px 6px; border-width: 2px; }
+  .org-node strong { font-size: 12px; }
+  .org-node small { font-size: 9px; letter-spacing: .08em; }
+  .org-flows { gap: 12px; }
+  .org-flow { font-size: 10.5px; letter-spacing: .04em; }
+  .org-frame-label { font-size: 13px; padding: 3px 14px; }
+}
+
 .feature-list { display: grid; gap: 18px; }
 .feature-card { padding: clamp(24px, 3.5vw, 34px) clamp(22px, 3.5vw, 38px); transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out); }
 .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
@@ -1021,6 +1074,8 @@ details p::before {
 .access-copy > p:not(.access-kicker) { margin: 0 0 24px; color: var(--muted); }
 
 .group-companies { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.biz-tags { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 16px 0 0; padding: 0; list-style: none; }
+.biz-tags li { padding-bottom: 3px; border-bottom: 2px solid var(--tag, var(--primary)); font-size: 12.5px; font-weight: 700; letter-spacing: .14em; color: var(--ink); }
 .group-companies article { padding: 28px 26px; transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out); }
 .group-companies article:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
 .group-head {
