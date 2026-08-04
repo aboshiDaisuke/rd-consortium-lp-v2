@@ -655,6 +655,10 @@ main, .site-footer { position: relative; z-index: 1; }
   pointer-events: none;
   box-shadow: none;
 }
+.split-visual .ecosystem-video {
+  width: 90%;
+  margin-inline: auto;
+}
 
 /* ============================================================
    ステートメント帯（背景動画）
