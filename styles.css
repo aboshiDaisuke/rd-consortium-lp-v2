@@ -771,15 +771,15 @@ main, .site-footer { position: relative; z-index: 1; }
   display: grid; grid-template-columns: 1fr minmax(110px, 200px) 1fr;
   gap: clamp(14px, 3.5vw, 42px);
   align-items: center;
-  max-width: 720px; margin: 26px auto 0;
-  padding: clamp(38px, 6vw, 54px) clamp(20px, 4vw, 44px) clamp(24px, 4vw, 38px);
+  max-width: 720px; margin: 88px auto 0;
+  padding: clamp(58px, 8vw, 74px) clamp(20px, 4vw, 44px) clamp(24px, 4vw, 38px);
   border: 2px solid var(--primary);
   border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.92);
   box-shadow: var(--shadow-sm);
 }
 .org-frame-label {
-  position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%);
+  position: absolute; top: 16px; left: 50%; transform: translate(-50%, 0);
   padding: 4px 22px;
   background: var(--paper); border-radius: 999px;
   color: var(--primary-deep); font-size: clamp(15px, 1.9vw, 19px); font-weight: 900; letter-spacing: .08em;
