@@ -1035,7 +1035,9 @@ main, .site-footer { position: relative; z-index: 1; }
    エンジニア募集要項
    ============================================================ */
 .job-detail { display: grid; gap: 20px; }
-.job-detail-block { padding: clamp(26px, 4vw, 36px) clamp(22px, 4vw, 40px); }
+.job-detail-card { padding: clamp(6px, 1vw, 10px) clamp(22px, 4vw, 40px); }
+.job-detail-block { padding: clamp(22px, 3.4vw, 30px) 0; }
+.job-detail-block + .job-detail-block { border-top: 1px solid var(--line); }
 .job-detail-block h3 {
   display: flex; align-items: center; gap: 14px;
   margin: 0 0 16px;
