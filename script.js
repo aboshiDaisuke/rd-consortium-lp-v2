@@ -6,8 +6,9 @@
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // 背景動画（ヒーロー / エコシステム / ステートメント帯 / 募集バナー）自動再生・低モーション対応
-  document.querySelectorAll(".hero-video, .ecosystem-video, .statement-video, .banner-video").forEach((video) => {
+  // 背景動画（エコシステム / ステートメント帯 / 募集バナー）自動再生・低モーション対応
+  // ヒーロー動画（top1→top2→本編）は下の initHeroIntroSequence で個別に制御する
+  document.querySelectorAll(".ecosystem-video, .statement-video, .banner-video").forEach((video) => {
     if (!(video instanceof HTMLVideoElement)) return;
     if (prefersReducedMotion) {
       video.pause();
@@ -22,6 +23,60 @@
     if (video.readyState >= 2) play();
     else video.addEventListener("loadeddata", play, { once: true });
   });
+
+  // ヒーロー動画：top1 → top2 → 本編の順に再生し、本編はループ
+  function initHeroIntroSequence() {
+    const intro1 = document.getElementById("hero-intro-1");
+    const intro2 = document.getElementById("hero-intro-2");
+    const main = document.getElementById("hero-main");
+    if (!intro1 || !intro2 || !main) return;
+
+    if (prefersReducedMotion) {
+      intro1.pause();
+      intro2.pause();
+      intro1.classList.remove("is-active");
+      main.classList.add("is-active");
+      main.removeAttribute("autoplay");
+      return;
+    }
+
+    const CROSSFADE_SEC = 0.9; // CSSのopacity transitionと合わせる
+
+    // 終端の少し手前で次の動画を先に再生開始し、重なった状態でフェードすることで
+    // 「切り替わった瞬間に止め絵→再生」のカクつきをなくす
+    const armCrossfade = (from, to) => {
+      let triggered = false;
+      const trigger = () => {
+        if (triggered) return;
+        triggered = true;
+        to.currentTime = 0;
+        to.play().catch(() => {
+          /* autoplay ブロック時はそのまま表示 */
+        });
+        from.classList.remove("is-active");
+        to.classList.add("is-active");
+      };
+      from.addEventListener("timeupdate", () => {
+        if (from.duration && from.currentTime >= from.duration - CROSSFADE_SEC) trigger();
+      });
+      from.addEventListener("ended", trigger);
+    };
+
+    armCrossfade(intro1, intro2);
+    armCrossfade(intro2, main);
+
+    const startIntro1 = () => {
+      intro1.play().catch(() => {
+        /* 自動再生がブロックされた場合は本編へフォールバック */
+        intro1.classList.remove("is-active");
+        main.classList.add("is-active");
+        main.play().catch(() => {});
+      });
+    };
+    if (intro1.readyState >= 2) startIntro1();
+    else intro1.addEventListener("loadeddata", startIntro1, { once: true });
+  }
+  initHeroIntroSequence();
 
   /* ============================================================
      背景「氷の渦」— HAL名古屋風モザイク（吸い込みアニメ）

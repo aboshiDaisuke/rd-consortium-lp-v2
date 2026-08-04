@@ -507,6 +507,7 @@ main, .site-footer { position: relative; z-index: 1; }
 .hero-media {
   position: relative;
   width: 100%;
+  height: min(78vh, 820px); min-height: 560px;
   border-radius: 0;
   overflow: hidden;
   isolation: isolate;
@@ -515,10 +516,21 @@ main, .site-footer { position: relative; z-index: 1; }
 .hero-media img,
 .hero-media .hero-video {
   display: block;
-  width: 100%; height: min(78vh, 820px); min-height: 560px;
+  width: 100%; height: 100%;
   object-fit: cover; object-position: 72% 28%;
   filter: saturate(1.02);
   pointer-events: none;
+}
+.hero-media .hero-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity .9s ease;
+}
+.hero-media .hero-video.is-active {
+  opacity: 1;
+  z-index: 1;
 }
 /* ドットメッシュ + グラデで文字の可読性を確保 */
 .hero-media::before {
@@ -1365,8 +1377,7 @@ textarea { resize: vertical; }
   .global-nav a::after { display: none; }
   .global-nav a[aria-current="page"] { background: var(--ice); }
 
-  .hero-media img,
-  .hero-media .hero-video { height: 76vh; min-height: 520px; }
+  .hero-media { height: 76vh; min-height: 520px; }
 
   .pillar-grid, .split-section, .audience-grid,
   .investor-panel, .faq-grid, .company-grid, .contact-panel,
@@ -1399,9 +1410,7 @@ textarea { resize: vertical; }
   .header-main { padding: 0 16px; }
   .brand-mark { font-size: 26px; }
   .hero { padding: 0; }
-  .hero-media { border-radius: 0; }
-  .hero-media img,
-  .hero-media .hero-video { height: 82vh; }
+  .hero-media { border-radius: 0; height: 82vh; }
   .hero-copy { left: 20px; right: 14px; bottom: 30px; width: auto; }
   .hero-copy h1 { font-size: clamp(30px, 8.6vw, 38px); }
   .hero-note { border-radius: 14px; padding: 10px 14px; }
