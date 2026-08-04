@@ -211,6 +211,44 @@ main, .site-footer { position: relative; z-index: 1; }
 .motion-shapes,
 .motion-shape { display: none !important; }
 
+/* ============================================================
+   Three.js 渦銀河背景（.motion-bg--3d）
+   canvasの奥に中心グロー、手前に白ベールを重ねて
+   紙面の可読性と光の勢いを両立する
+   ============================================================ */
+.motion-bg--3d canvas {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+/* 中心の光源グロー（canvasの奥） */
+.motion-bg--3d::before {
+  content: "";
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: min(46vw, 480px);
+  height: min(46vw, 480px);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.95) 0 16%, rgba(237, 246, 255, 0.6) 34%, rgba(189, 214, 245, 0.22) 54%, transparent 72%);
+  animation: corePulse 5.5s ease-in-out infinite;
+  pointer-events: none;
+}
+/* 可読性ベール（canvasの手前）: 上端と中心をうっすら白で押さえる */
+.motion-bg--3d::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0) 22%),
+    radial-gradient(58% 46% at 50% 42%, rgba(255, 255, 255, 0.38), transparent 72%),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 18%);
+  pointer-events: none;
+}
+
 /* 外周→中心へ回転しながら縮小（吸い込み） */
 @keyframes vortexSuction {
   0% {

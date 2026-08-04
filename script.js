@@ -229,8 +229,42 @@
     counters.forEach((counter) => observer.observe(counter));
   }
 
+  // Three.js版の渦銀河背景を優先し、不可ならCSS渦へフォールバック
+  function initMotionBackground3D() {
+    const root = document.querySelector(".motion-bg");
+    if (!root || root.dataset.enhanced === "1") return;
+
+    const supportsWebGL = () => {
+      try {
+        const canvas = document.createElement("canvas");
+        return Boolean(canvas.getContext("webgl2") || canvas.getContext("webgl"));
+      } catch (e) {
+        return false;
+      }
+    };
+
+    if (prefersReducedMotion || !supportsWebGL()) {
+      initMotionBackground();
+      return;
+    }
+
+    root.dataset.enhanced = "1";
+    root.innerHTML = "";
+    import("./assets/js/motion-bg-3d.js")
+      .then((mod) => {
+        if (!mod.initMotionBg3D(root)) {
+          root.dataset.enhanced = "";
+          initMotionBackground();
+        }
+      })
+      .catch(() => {
+        root.dataset.enhanced = "";
+        initMotionBackground();
+      });
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
-    initMotionBackground();
+    initMotionBackground3D();
     initStructureCounts();
   });
 
