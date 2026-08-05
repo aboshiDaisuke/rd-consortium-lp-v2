@@ -24,7 +24,7 @@
     else video.addEventListener("loadeddata", play, { once: true });
   });
 
-  // ヒーロー動画：top1 → top2 → 本編の順に再生し、本編はループ
+  // ヒーロー動画：top1 → top2 → 本編 → top1 … の順に無限ループ
   function initHeroIntroSequence() {
     const intro1 = document.getElementById("hero-intro-1");
     const intro2 = document.getElementById("hero-intro-2");
@@ -60,10 +60,15 @@
         if (from.duration && from.currentTime >= from.duration - CROSSFADE_SEC) trigger();
       });
       from.addEventListener("ended", trigger);
+      // 次の周回で再び切り替えられるよう、先頭から再生され直したら再武装する
+      from.addEventListener("play", () => {
+        triggered = false;
+      });
     };
 
     armCrossfade(intro1, intro2);
     armCrossfade(intro2, main);
+    armCrossfade(main, intro1); // 本編が終わったら1本目へ戻る
 
     const startIntro1 = () => {
       intro1.play().catch(() => {
