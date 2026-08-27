@@ -7,7 +7,7 @@ get_header();
 		<p class="breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">トップ</a> / <a href="<?php echo esc_url( home_url( '/engineer/' ) ); ?>">エンジニアメリット</a> / エンジニア募集要項</p>
 		<p class="page-hero-eyebrow">Recruit<span class="jp">エンジニア募集要項</span></p>
 		<h1>R&amp;Dプロジェクト<br>エンジニア募集</h1>
-		<p>実需ベースの現場課題を解決するため、技術・製品の研究開発に参画いただくエンジニアを募集しています。</p>
+		<p>実需ベースの現場課題を解決するため、<br>技術・製品の研究開発に参画いただくエンジニアを募集しています。</p>
 	</div>
 	<section class="section reveal" aria-labelledby="requirements-title">
 		<div class="sec-head"><p class="sec-label">Requirements</p><h2 class="sec-title" id="requirements-title">募集要項</h2></div>
