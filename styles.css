@@ -531,7 +531,7 @@ main, .site-footer { position: relative; z-index: 1; }
   font-family: var(--font-heading); font-weight: 900;
   font-size: clamp(30px, 4.6vw, 52px); line-height: 1.4; letter-spacing: .04em;
 }
-.page-hero p:not(.breadcrumb):not(.page-hero-eyebrow) { margin: 0; max-width: 680px; color: rgba(255,255,255,.78); font-size: clamp(14px, 1.5vw, 16px); }
+.page-hero p:not(.breadcrumb):not(.page-hero-eyebrow) { margin: 0; max-width: 780px; color: rgba(255,255,255,.78); font-size: clamp(14px, 1.5vw, 16px); }
 
 /* ============================================================
    トップページ: ヒーロー

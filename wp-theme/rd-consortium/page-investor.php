@@ -13,7 +13,7 @@ get_header();
 		<p class="breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">トップ</a> / 投資企業メリット</p>
 		<p class="page-hero-eyebrow">Investor<span class="jp">投資企業メリット</span></p>
 		<h1>自社だけでは賄いきれない開発費・人材費を、<br>共同出資で軽くする。</h1>
-		<p>複数企業と共同で研究開発資金を拠出することで、リスクを抑えながら技術開発を進めることができます。開発成果は製品化、OEM供給、共同事業化などへ展開できます。</p>
+		<p>複数企業と共同で研究開発資金を拠出することで、リスクを抑えながら技術開発を進めることができます。<br>開発成果は製品化、OEM供給、共同事業化などへ展開できます。</p>
 	</div>
 
 	<section class="section reveal">
