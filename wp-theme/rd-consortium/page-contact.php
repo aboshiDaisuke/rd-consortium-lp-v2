@@ -54,7 +54,6 @@ get_header();
 					<textarea rows="4" name="your-message" placeholder="相談したいテーマや保有スキルなどをご記入ください"></textarea>
 				</label>
 				<button class="pill pill-primary" type="button">送信内容を確認する <span class="arrow-circle">→</span></button>
-				<p class="form-note">※現在はフォーム送信機能を準備中です。お急ぎの場合はお電話にてお問い合わせください。</p>
 			</form>
 		</div>
 	</section>
