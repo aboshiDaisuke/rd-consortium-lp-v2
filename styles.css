@@ -849,7 +849,7 @@ main, .site-footer { position: relative; z-index: 1; }
 .org-caption { margin: 36px auto 0; max-width: 720px; text-align: center; font-size: .8rem; color: var(--muted); letter-spacing: .06em; }
 
 /* Aboutセクション（コンセプト＋映像＋組織図の統合） */
-.about-split { margin-bottom: clamp(20px, 4vw, 40px); }
+.about-split { align-items: end; margin-bottom: clamp(20px, 4vw, 40px); }
 .about-split .concept-formula { margin: 26px 0 0; }
 .concept-formula span { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
 .concept-formula span svg { flex-shrink: 0; color: var(--primary); }
