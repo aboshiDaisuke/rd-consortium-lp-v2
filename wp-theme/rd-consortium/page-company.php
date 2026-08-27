@@ -99,7 +99,7 @@ get_header();
 		<div class="group-companies">
 			<article class="card reveal" style="--delay:0">
 				<h3>株式会社 イシダテクノ</h3>
-				<span class="en">ISHIDA</span>
+				<span class="en">ISHIDATECNO</span>
 				<dl>
 					<div><a href="https://www.ishidatecno.co.jp" target="_blank" rel="noopener">https://www.ishidatecno.co.jp</a></div>
 					<div>〒451-0077 愛知県名古屋市西区笹塚町2丁目10番地</div>
