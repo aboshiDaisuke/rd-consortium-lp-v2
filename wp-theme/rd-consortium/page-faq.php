@@ -13,7 +13,7 @@ get_header();
 		<p class="breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">トップ</a> / よくある質問</p>
 		<p class="page-hero-eyebrow">FAQ<span class="jp">よくある質問</span></p>
 		<h1>投資企業・エンジニアの<br>よくある質問</h1>
-		<p>それぞれの立場からよく寄せられるご質問にお答えします。掲載のない内容は、お問い合わせフォームよりご相談ください。</p>
+		<p>それぞれの立場からよく寄せられるご質問にお答えします。<br>掲載のない内容は、お問い合わせフォームよりご相談ください。</p>
 	</div>
 
 	<section class="section reveal">
@@ -74,7 +74,6 @@ get_header();
 			<div>
 				<small>Contact</small>
 				<h2>解決しない場合はお気軽にお問い合わせください</h2>
-				<p>ご不明点は下記よりお問い合わせいただくか、お電話（052-521-1110）にてご連絡ください。</p>
 				<div class="pill-row" style="margin-top:22px;">
 					<a class="pill pill-primary" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">お問い合わせフォームへ <span class="arrow-circle">→</span></a>
 				</div>
