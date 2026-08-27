@@ -637,7 +637,7 @@ main, .site-footer { position: relative; z-index: 1; }
 /* ============================================================
    PRODUCT 基本コンセプト
    ============================================================ */
-.concept-formula { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 6px; margin: 0 0 44px; }
+.concept-formula { display: flex; flex-direction: column; align-items: stretch; gap: 7px; margin: 0 0 44px; max-width: min(360px, 100%); }
 .concept-formula span {
   display: inline-flex; align-items: center;
   padding: 9px 20px;
@@ -647,7 +647,7 @@ main, .site-footer { position: relative; z-index: 1; }
   color: var(--primary-deep);
   font-size: clamp(12.5px, 1.4vw, 15px); font-weight: 700; letter-spacing: .05em;
 }
-.concept-formula i { padding: 0 8px; color: var(--gold); font-style: normal; font-family: var(--font-heading); font-size: clamp(15px, 1.7vw, 20px); font-weight: 700; }
+.concept-formula i { padding: 0; text-align: center; line-height: 1; color: var(--gold); font-style: normal; font-family: var(--font-heading); font-size: 13px; font-weight: 700; opacity: .75; }
 
 .pillar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .pillar-grid article { position: relative; padding: 30px 26px 28px; overflow: hidden; transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out); }
@@ -851,7 +851,7 @@ main, .site-footer { position: relative; z-index: 1; }
 /* Aboutセクション（コンセプト＋映像＋組織図の統合） */
 .about-split { margin-bottom: clamp(20px, 4vw, 40px); }
 .about-split .concept-formula { margin: 26px 0 0; }
-.concept-formula span { display: inline-flex; align-items: center; gap: 8px; }
+.concept-formula span { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
 .concept-formula span svg { flex-shrink: 0; color: var(--primary); }
 .org-icon { color: var(--primary-deep); }
 .org-node--engineer .org-icon { color: var(--primary); }
