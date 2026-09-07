@@ -304,11 +304,12 @@
       event.preventDefault();
     });
 
-    // 導線元に応じた初期タブ（?type=engineer / investor / other）
+    // 導線元に応じた初期タブ（?type=inquiry / investor / engineer、互換性で other も inquiry 扱い）
     const params = new URLSearchParams(window.location.search);
-    const requestedType = params.get("type");
+    let requestedType = params.get("type");
+    if (requestedType === "other") requestedType = "inquiry";
     const hasType = tabs.some((tab) => tab.dataset.contactTab === requestedType);
-    activateTab(hasType ? requestedType : "engineer");
+    activateTab(hasType ? requestedType : "inquiry");
 
     // 対象の募集・プロジェクト名の引き継ぎ（?subject=）
     const subject = params.get("subject");

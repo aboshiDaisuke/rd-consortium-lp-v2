@@ -52,86 +52,193 @@
       <div class="page-hero">
         <p class="breadcrumb"><a href="index.html">トップ</a> / お問い合わせ</p>
         <p class="page-hero-eyebrow">お問い合わせ<span class="en">Contact</span></p>
-        <h1>プロジェクト相談・参画応募</h1>
-        <p>エンジニア応募・投資企業相談・その他のお問い合わせを、共通フォームで受け付けています。<br>タブで種別を切り替えてご入力ください。</p>
+        <h1>お問い合わせ・各種ご相談</h1>
+        <p>一般のお問い合わせ、投資企業様からの研究開発相談、エンジニア参画エントリーを受け付けています。<br>タブで種別を切り替えてご入力ください。</p>
       </div>
 
       <section class="section reveal">
         <div class="contact-panel">
           <div>
             <small>Contact</small>
-            <h2>共通お問い合わせフォーム</h2>
-            <p>エントリー（エンジニア応募）、投資企業相談、その他のお問い合わせを1つのフォームに一本化しています。タブでお問い合わせ種別を選んでご入力ください。</p>
+            <h2>お問い合わせ・各種ご相談</h2>
+            <p>一般のお問い合わせ、投資企業様からの研究開発相談、エンジニアとしての参画エントリーを承っています。上部のタブで種別を選択してご入力ください。</p>
             <div class="pill-row" style="margin-top:22px; flex-direction:column;">
               <a class="pill pill-outline" href="recruit.html">募集要項を確認する <span class="arrow-circle">→</span></a>
               <a class="pill pill-outline" href="projects.html">プロジェクト事例紹介を見る <span class="arrow-circle">→</span></a>
+              <a class="pill pill-outline" href="faq.html">よくある質問を見る <span class="arrow-circle">→</span></a>
             </div>
           </div>
           <div class="contact-form-area">
             <div class="contact-tabs" role="tablist" aria-label="お問い合わせ種別">
-              <button class="contact-tab" type="button" role="tab" id="tab-engineer" aria-controls="panel-engineer" aria-selected="true" data-contact-tab="engineer">エンジニア応募</button>
+              <button class="contact-tab" type="button" role="tab" id="tab-inquiry" aria-controls="panel-inquiry" aria-selected="true" data-contact-tab="inquiry">問い合わせ</button>
               <button class="contact-tab" type="button" role="tab" id="tab-investor" aria-controls="panel-investor" aria-selected="false" tabindex="-1" data-contact-tab="investor">投資企業相談</button>
-              <button class="contact-tab" type="button" role="tab" id="tab-other" aria-controls="panel-other" aria-selected="false" tabindex="-1" data-contact-tab="other">その他</button>
+              <button class="contact-tab" type="button" role="tab" id="tab-engineer" aria-controls="panel-engineer" aria-selected="false" tabindex="-1" data-contact-tab="engineer">エンジニアエントリー</button>
             </div>
-            <div class="contact-tabpanel" role="tabpanel" id="panel-engineer" aria-labelledby="tab-engineer">
+
+            <!-- ① 問い合わせフォーム -->
+            <div class="contact-tabpanel" role="tabpanel" id="panel-inquiry" aria-labelledby="tab-inquiry">
+              <p class="form-lead">コンソーシアムの活動内容、協業・連携のご提案、取材・広報などに関する一般的なお問い合わせはこちらから承ります。</p>
               <form>
                 <label>
-                  <span>お名前</span>
-                  <input type="text" name="name" autocomplete="name" placeholder="例: 山田 太郎">
+                  <span>お問い合わせ種別<span class="form-badge-req">必須</span></span>
+                  <select name="inquiry_type" required>
+                    <option value="">選択してください</option>
+                    <option value="activity">R&amp;Dコンソーシアムの活動・参画について</option>
+                    <option value="partnership">協業・業務提携のご提案</option>
+                    <option value="press">取材・広報・メディア掲載について</option>
+                    <option value="other">その他のお問い合わせ</option>
+                  </select>
                 </label>
+                <div class="form-row-2col">
+                  <label>
+                    <span>お名前<span class="form-badge-req">必須</span></span>
+                    <input type="text" name="name" autocomplete="name" placeholder="例: 山田 太郎" required>
+                  </label>
+                  <label>
+                    <span>フリガナ<span class="form-badge-opt">任意</span></span>
+                    <input type="text" name="kana" placeholder="例: ヤマダ タロウ">
+                  </label>
+                </div>
                 <label>
-                  <span>メールアドレス</span>
-                  <input type="email" name="email" autocomplete="email" placeholder="example@example.com">
-                </label>
-                <label>
-                  <span>対象の募集・プロジェクト</span>
-                  <input type="text" name="subject" data-contact-subject placeholder="例: R&amp;Dプロジェクトエンジニア">
-                </label>
-                <label>
-                  <span>保有スキル・経験・自己PR</span>
-                  <textarea rows="4" name="message" placeholder="専門分野、経験年数、参加可能な時間帯などをご記入ください"></textarea>
-                </label>
-                <button class="pill pill-primary" type="button">送信内容を確認する <span class="arrow-circle">→</span></button>
-              </form>
-            </div>
-            <div class="contact-tabpanel" role="tabpanel" id="panel-investor" aria-labelledby="tab-investor" hidden>
-              <form>
-                <label>
-                  <span>会社名</span>
+                  <span>貴社名・組織名<span class="form-badge-opt">任意</span></span>
                   <input type="text" name="company" autocomplete="organization" placeholder="例: 株式会社〇〇">
                 </label>
+                <div class="form-row-2col">
+                  <label>
+                    <span>メールアドレス<span class="form-badge-req">必須</span></span>
+                    <input type="email" name="email" autocomplete="email" placeholder="example@example.com" required>
+                  </label>
+                  <label>
+                    <span>お電話番号<span class="form-badge-opt">任意</span></span>
+                    <input type="tel" name="tel" autocomplete="tel" placeholder="例: 052-000-0000">
+                  </label>
+                </div>
                 <label>
-                  <span>ご担当者名</span>
-                  <input type="text" name="name" autocomplete="name" placeholder="例: 山田 太郎">
+                  <span>お問い合わせ内容<span class="form-badge-req">必須</span></span>
+                  <textarea rows="5" name="message" placeholder="お問い合わせ内容の詳細をご記入ください。" required></textarea>
                 </label>
-                <label>
-                  <span>メールアドレス</span>
-                  <input type="email" name="email" autocomplete="email" placeholder="example@example.com">
-                </label>
-                <label>
-                  <span>対象プロジェクト（任意）</span>
-                  <input type="text" name="subject" data-contact-subject placeholder="例: 省電力センシング">
-                </label>
-                <label>
-                  <span>ご相談内容</span>
-                  <textarea rows="4" name="message" placeholder="現場課題や共同開発を検討したいテーマをご記入ください"></textarea>
+                <label class="form-privacy-agree">
+                  <input type="checkbox" name="privacy_agree" required>
+                  <span><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意の上、送信します。</span>
                 </label>
                 <button class="pill pill-primary" type="button">送信内容を確認する <span class="arrow-circle">→</span></button>
               </form>
             </div>
-            <div class="contact-tabpanel" role="tabpanel" id="panel-other" aria-labelledby="tab-other" hidden>
+
+            <!-- ② 投資企業相談フォーム（一般的な企業相談フォーム） -->
+            <div class="contact-tabpanel" role="tabpanel" id="panel-investor" aria-labelledby="tab-investor" hidden>
+              <p class="form-lead">投資企業様からのご参画・ご出資、共同研究開発に関する一般的なご相談窓口です。検討中の課題やご希望などをお気軽にお寄せください。</p>
               <form>
+                <div class="form-section-title">企業情報・ご担当者様</div>
                 <label>
-                  <span>お名前 / 会社名</span>
-                  <input type="text" name="name" placeholder="例: 株式会社〇〇 / 山田 太郎">
+                  <span>貴社名<span class="form-badge-req">必須</span></span>
+                  <input type="text" name="company" autocomplete="organization" placeholder="例: 株式会社〇〇" required>
+                </label>
+                <div class="form-row-2col">
+                  <label>
+                    <span>ご担当者のお名前<span class="form-badge-req">必須</span></span>
+                    <input type="text" name="name" autocomplete="name" placeholder="例: 山田 太郎" required>
+                  </label>
+                  <label>
+                    <span>フリガナ<span class="form-badge-opt">任意</span></span>
+                    <input type="text" name="kana" placeholder="例: ヤマダ タロウ">
+                  </label>
+                </div>
+                <div class="form-row-2col">
+                  <label>
+                    <span>部署・お役職<span class="form-badge-opt">任意</span></span>
+                    <input type="text" name="department" placeholder="例: 開発部 部長">
+                  </label>
+                  <label>
+                    <span>お電話番号<span class="form-badge-req">必須</span></span>
+                    <input type="tel" name="tel" autocomplete="tel" placeholder="例: 052-521-1110" required>
+                  </label>
+                </div>
+                <label>
+                  <span>メールアドレス<span class="form-badge-req">必須</span></span>
+                  <input type="email" name="email" autocomplete="email" placeholder="example@company.co.jp" required>
+                </label>
+
+                <div class="form-section-title">ご相談の目的・ご検討内容</div>
+                <div>
+                  <span style="font-size: 13.5px; font-weight: 700; color: var(--navy);">ご相談の目的<span class="form-badge-req">必須</span>（複数選択可）</span>
+                  <div class="form-check-grid" style="margin-top:8px;">
+                    <label class="form-check-item"><input type="checkbox" name="purpose" value="problem_solving" checked>現場課題の解決・開発委託</label>
+                    <label class="form-check-item"><input type="checkbox" name="purpose" value="consortium_join">コンソーシアムへの参画・出資</label>
+                    <label class="form-check-item"><input type="checkbox" name="purpose" value="co_project">共同プロジェクト立ち上げ</label>
+                    <label class="form-check-item"><input type="checkbox" name="purpose" value="document">詳しい資料・説明希望</label>
+                    <label class="form-check-item"><input type="checkbox" name="purpose" value="other">その他</label>
+                  </div>
+                </div>
+                <label>
+                  <span>ご相談内容・検討中の課題<span class="form-badge-req">必須</span></span>
+                  <textarea rows="5" name="message" placeholder="現在抱えている現場課題、共同開発を検討したい領域、想定スケジュールやご予算感などをご自由にご記入ください。" required></textarea>
+                </label>
+                <label class="form-privacy-agree">
+                  <input type="checkbox" name="privacy_agree" required>
+                  <span><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意の上、送信します。</span>
+                </label>
+                <button class="pill pill-primary" type="button">送信内容を確認する <span class="arrow-circle">→</span></button>
+              </form>
+            </div>
+
+            <!-- ③ エンジニアエントリーフォーム（指定PDFの項目を反映） -->
+            <div class="contact-tabpanel" role="tabpanel" id="panel-engineer" aria-labelledby="tab-engineer" hidden>
+              <p class="form-lead">R&amp;Dコンソーシアムの研究開発プロジェクトへの参画エントリーフォームです。以下の相談フォーム項目に沿ってご記入ください。</p>
+              <form>
+                <div class="form-section-title">【投資企業様／記入欄】</div>
+                <label>
+                  <span>1. 企業様名<span class="form-badge-req">必須</span></span>
+                  <input type="text" name="company" autocomplete="organization" placeholder="例: 株式会社〇〇" required>
+                </label>
+                <div class="form-row-2col">
+                  <label>
+                    <span>2. ご担当者のお名前<span class="form-badge-req">必須</span></span>
+                    <input type="text" name="name" autocomplete="name" placeholder="例: 山田 太郎" required>
+                  </label>
+                  <label>
+                    <span>3. メールアドレス<span class="form-badge-req">必須</span></span>
+                    <input type="email" name="email" autocomplete="email" placeholder="example@example.com" required>
+                  </label>
+                </div>
+                <label>
+                  <span>お電話番号<span class="form-badge-opt">任意</span></span>
+                  <input type="tel" name="tel" autocomplete="tel" placeholder="例: 052-521-1110">
+                </label>
+
+                <div class="form-section-title">【研究開発委託内容／記入欄】</div>
+                <label>
+                  <span>1. 研究開発委託テーマタイトル<span class="form-badge-req">必須</span></span>
+                  <input type="text" name="theme_title" placeholder="例: 工場ライン自動化ロボティクス技術" required>
                 </label>
                 <label>
-                  <span>メールアドレス</span>
-                  <input type="email" name="email" autocomplete="email" placeholder="example@example.com">
+                  <span>2. 解決したい<span class="text-red">現場の具体顧客課題</span><span class="form-badge-req">必須</span></span>
+                  <span class="form-item-note">※<span class="text-red">お客様の生の声</span>を添付・記載いただけますと幸いです。</span>
+                  <textarea rows="4" name="issue" placeholder="例: 工場内の人手不足解消・省人化" required></textarea>
                 </label>
                 <label>
-                  <span>お問い合わせ内容</span>
-                  <textarea rows="4" name="message" placeholder="お問い合わせ内容をご記入ください"></textarea>
+                  <span>3. 上記2の課題解決のための実践的な<span class="text-red">研究開発アイデア内容</span>と<span class="text-red">期待する成果・ゴール</span><span class="form-badge-req">必須</span></span>
+                  <textarea rows="4" name="solution_goal" placeholder="例: ロボティクス技術による工場ライン自動化 プロトタイプ開発を想定" required></textarea>
+                </label>
+                <label>
+                  <span>4. 上市した際の想定される<span class="text-red">実需規模</span>とその<span class="text-red">市場成長性</span><span class="form-badge-opt">任意</span></span>
+                  <textarea rows="3" name="market_scale" placeholder="上市した際の想定される実需規模とその市場成長性についてご記入ください"></textarea>
+                </label>
+                <label>
+                  <span>5. 想定される<span class="text-red">商流と物流</span>のイメージ<span class="form-badge-opt">任意</span></span>
+                  <textarea rows="3" name="distribution_flow" placeholder="想定される商流と物流のイメージについてご記入ください"></textarea>
+                </label>
+                <label>
+                  <span>6. 必要な<span class="text-red">アフターメンテナンス体制</span>のあり方<span class="form-badge-opt">任意</span></span>
+                  <textarea rows="3" name="maintenance_plan" placeholder="必要なアフターメンテナンス体制のあり方についてご記入ください"></textarea>
+                </label>
+                <label>
+                  <span>7. 追補事項（　）<span class="form-badge-opt">任意</span></span>
+                  <textarea rows="3" name="supplementary" placeholder="その他追補事項がございましたらご記入ください"></textarea>
+                </label>
+                <label class="form-privacy-agree">
+                  <input type="checkbox" name="privacy_agree" required>
+                  <span><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意の上、送信します。</span>
                 </label>
                 <button class="pill pill-primary" type="button">送信内容を確認する <span class="arrow-circle">→</span></button>
               </form>
