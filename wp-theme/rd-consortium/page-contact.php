@@ -85,54 +85,59 @@ get_header();
 					</form>
 				</div>
 
-				<!-- ② 投資企業相談フォーム（一般的な企業相談フォーム） -->
+				<!-- ② 投資企業相談フォーム（指定PDFの項目を反映） -->
 				<div class="contact-tabpanel" role="tabpanel" id="panel-investor" aria-labelledby="tab-investor" hidden>
-					<p class="form-lead">投資企業様からのご参画・ご出資、共同研究開発に関する一般的なご相談窓口です。検討中の課題やご希望などをお気軽にお寄せください。</p>
+					<p class="form-lead">R&amp;Dコンソーシアムの研究開発委託・投資企業様向け相談フォームです。以下の相談フォーム項目に沿ってご記入ください。</p>
 					<form>
-						<div class="form-section-title">企業情報・ご担当者様</div>
+						<div class="form-section-title">【投資企業様／記入欄】</div>
 						<label>
-							<span>貴社名<span class="form-badge-req">必須</span></span>
+							<span>1. 企業様名<span class="form-badge-req">必須</span></span>
 							<input type="text" name="company" autocomplete="organization" placeholder="例: 株式会社〇〇" required>
 						</label>
 						<div class="form-row-2col">
 							<label>
-								<span>ご担当者のお名前<span class="form-badge-req">必須</span></span>
+								<span>2. ご担当者のお名前<span class="form-badge-req">必須</span></span>
 								<input type="text" name="name" autocomplete="name" placeholder="例: 山田 太郎" required>
 							</label>
 							<label>
-								<span>フリガナ<span class="form-badge-opt">任意</span></span>
-								<input type="text" name="kana" placeholder="例: ヤマダ タロウ">
-							</label>
-						</div>
-						<div class="form-row-2col">
-							<label>
-								<span>部署・お役職<span class="form-badge-opt">任意</span></span>
-								<input type="text" name="department" placeholder="例: 開発部 部長">
-							</label>
-							<label>
-								<span>お電話番号<span class="form-badge-req">必須</span></span>
-								<input type="tel" name="tel" autocomplete="tel" placeholder="例: 052-521-1110" required>
+								<span>3. メールアドレス<span class="form-badge-req">必須</span></span>
+								<input type="email" name="email" autocomplete="email" placeholder="example@example.com" required>
 							</label>
 						</div>
 						<label>
-							<span>メールアドレス<span class="form-badge-req">必須</span></span>
-							<input type="email" name="email" autocomplete="email" placeholder="example@company.co.jp" required>
+							<span>お電話番号<span class="form-badge-opt">任意</span></span>
+							<input type="tel" name="tel" autocomplete="tel" placeholder="例: 052-521-1110">
 						</label>
 
-						<div class="form-section-title">ご相談の目的・ご検討内容</div>
-						<div>
-							<span style="font-size: 13.5px; font-weight: 700; color: var(--navy);">ご相談の目的<span class="form-badge-req">必須</span>（複数選択可）</span>
-							<div class="form-check-grid" style="margin-top:8px;">
-								<label class="form-check-item"><input type="checkbox" name="purpose" value="problem_solving" checked>現場課題の解決・開発委託</label>
-								<label class="form-check-item"><input type="checkbox" name="purpose" value="consortium_join">コンソーシアムへの参画・出資</label>
-								<label class="form-check-item"><input type="checkbox" name="purpose" value="co_project">共同プロジェクト立ち上げ</label>
-								<label class="form-check-item"><input type="checkbox" name="purpose" value="document">詳しい資料・説明希望</label>
-								<label class="form-check-item"><input type="checkbox" name="purpose" value="other">その他</label>
-							</div>
-						</div>
+						<div class="form-section-title">【研究開発委託内容／記入欄】</div>
 						<label>
-							<span>ご相談内容・検討中の課題<span class="form-badge-req">必須</span></span>
-							<textarea rows="5" name="message" placeholder="現在抱えている現場課題、共同開発を検討したい領域、想定スケジュールやご予算感などをご自由にご記入ください。" required></textarea>
+							<span>1. 研究開発委託テーマタイトル<span class="form-badge-req">必須</span></span>
+							<input type="text" name="theme_title" placeholder="例: 工場ライン自動化ロボティクス技術" required>
+						</label>
+						<label>
+							<span>2. 解決したい<span class="text-red">現場の具体顧客課題</span><span class="form-badge-req">必須</span></span>
+							<span class="form-item-note">※<span class="text-red">お客様の生の声</span>を添付・記載いただけますと幸いです。</span>
+							<textarea rows="4" name="issue" placeholder="例: 工場内の人手不足解消・省人化" required></textarea>
+						</label>
+						<label>
+							<span>3. 上記2の課題解決のための実践的な<span class="text-red">研究開発アイデア内容</span>と<span class="text-red">期待する成果・ゴール</span><span class="form-badge-req">必須</span></span>
+							<textarea rows="4" name="solution_goal" placeholder="例: ロボティクス技術による工場ライン自動化 プロトタイプ開発を想定" required></textarea>
+						</label>
+						<label>
+							<span>4. 上市した際の想定される<span class="text-red">実需規模</span>とその<span class="text-red">市場成長性</span><span class="form-badge-opt">任意</span></span>
+							<textarea rows="3" name="market_scale" placeholder="上市した際の想定される実需規模とその市場成長性についてご記入ください"></textarea>
+						</label>
+						<label>
+							<span>5. 想定される<span class="text-red">商流と物流</span>のイメージ<span class="form-badge-opt">任意</span></span>
+							<textarea rows="3" name="distribution_flow" placeholder="想定される商流と物流のイメージについてご記入ください"></textarea>
+						</label>
+						<label>
+							<span>6. 必要な<span class="text-red">アフターメンテナンス体制</span>のあり方<span class="form-badge-opt">任意</span></span>
+							<textarea rows="3" name="maintenance_plan" placeholder="必要なアフターメンテナンス体制のあり方についてご記入ください"></textarea>
+						</label>
+						<label>
+							<span>7. 追補事項<span class="form-badge-opt">任意</span></span>
+							<textarea rows="3" name="supplementary" placeholder="その他追補事項がございましたらご記入ください"></textarea>
 						</label>
 						<label class="form-privacy-agree">
 							<input type="checkbox" name="privacy_agree" required>
@@ -193,7 +198,7 @@ get_header();
 							<textarea rows="3" name="maintenance_plan" placeholder="必要なアフターメンテナンス体制のあり方についてご記入ください"></textarea>
 						</label>
 						<label>
-							<span>7. 追補事項（　）<span class="form-badge-opt">任意</span></span>
+							<span>7. 追補事項<span class="form-badge-opt">任意</span></span>
 							<textarea rows="3" name="supplementary" placeholder="その他追補事項がございましたらご記入ください"></textarea>
 						</label>
 						<label class="form-privacy-agree">
