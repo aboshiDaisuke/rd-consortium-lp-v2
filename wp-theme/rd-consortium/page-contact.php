@@ -1,6 +1,7 @@
 <?php
 /**
- * お問い合わせページ（スラッグ: contact）
+ * お問い合わせ（スラッグ: contact）
+ * フォームは見た目のみ。Contact Form 7 等の導入後に各 <form>…</form> を置き換える
  *
  * @package rd-consortium
  */
@@ -11,7 +12,7 @@ get_header();
 <main id="main">
 	<div class="page-hero">
 		<p class="breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">トップ</a> / お問い合わせ</p>
-		<p class="page-hero-eyebrow">Contact<span class="jp">お問い合わせ</span></p>
+		<p class="page-hero-eyebrow">お問い合わせ<span class="en">Contact</span></p>
 		<h1>お問い合わせ・各種ご相談</h1>
 		<p>一般のお問い合わせ、投資企業様からの研究開発相談、エンジニア参画エントリーを受け付けています。<br>タブで種別を切り替えてご入力ください。</p>
 	</div>
@@ -24,7 +25,7 @@ get_header();
 				<p>一般のお問い合わせ、投資企業様からの研究開発相談、エンジニアとしての参画エントリーを承っています。上部のタブで種別を選択してご入力ください。</p>
 				<div class="pill-row" style="margin-top:22px; flex-direction:column;">
 					<a class="pill pill-outline" href="<?php echo esc_url( home_url( '/recruit/' ) ); ?>">募集要項を確認する <span class="arrow-circle">→</span></a>
-					<a class="pill pill-outline" href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ?: home_url( '/projects/' ) ); ?>">プロジェクト事例紹介を見る <span class="arrow-circle">→</span></a>
+					<a class="pill pill-outline" href="<?php echo esc_url( home_url( '/projects/' ) ); ?>">プロジェクト事例紹介を見る <span class="arrow-circle">→</span></a>
 					<a class="pill pill-outline" href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">よくある質問を見る <span class="arrow-circle">→</span></a>
 				</div>
 			</div>
@@ -179,12 +180,7 @@ get_header();
 	</section>
 
 	<section class="section section--tight reveal">
-		<div class="company-grid">
-			<div class="card tel-block">
-				<h3>お電話でのお問い合わせ</h3>
-				<p class="tel-number">052-521-1110</p>
-				<p>一般社団法人 テクノサプライ（FAX 052-521-0064）</p>
-			</div>
+		<div class="company-grid" style="grid-template-columns:1fr;">
 			<div class="card company-note">
 				<h3>運営法人について</h3>
 				<p>R&D コンソーシアムは一般社団法人テクノサプライが運営しています。所在地・関連会社などの詳細は法人情報をご覧ください。</p>

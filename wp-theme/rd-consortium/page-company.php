@@ -1,29 +1,30 @@
 <?php
 /**
- * 法人情報ページ（スラッグ: company）
+ * 法人情報（スラッグ: company）
  *
  * @package rd-consortium
  */
 
 get_header();
+$tpl = get_template_directory_uri();
 ?>
 
 <main id="main">
 	<div class="page-hero">
 		<p class="breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">トップ</a> / 法人情報</p>
-		<p class="page-hero-eyebrow">Company<span class="jp">法人情報</span></p>
+		<p class="page-hero-eyebrow">法人情報<span class="en">Company</span></p>
 		<h1>一般社団法人 テクノサプライ</h1>
 		<p>R&D コンソーシアムの運営法人および、関連会社のご紹介です。</p>
 	</div>
 
 	<section class="section reveal" aria-labelledby="greeting-title">
 		<div class="sec-head">
-			<p class="sec-label">Greeting</p>
+			<p class="sec-label"><span class="en">Greeting</span></p>
 			<h2 class="sec-title" id="greeting-title">代表挨拶</h2>
 		</div>
 		<div class="card greeting-panel">
 			<figure class="greeting-photo">
-				<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/koji_takigawa.jpg' ); ?>" alt="代表理事 瀧川浩司" width="900" height="1200" loading="lazy">
+				<img src="<?php echo esc_url( $tpl . '/assets/koji_takigawa.jpg' ); ?>" alt="代表理事 瀧川浩司" width="900" height="1200" loading="lazy">
 				<figcaption><span class="en">Representative Director</span>代表理事　瀧川 浩司</figcaption>
 			</figure>
 			<div class="greeting-body">
@@ -40,7 +41,7 @@ get_header();
 
 	<section class="section section--tight reveal" aria-labelledby="profile-title">
 		<div class="sec-head">
-			<p class="sec-label">Profile</p>
+			<p class="sec-label"><span class="en">Profile</span></p>
 			<h2 class="sec-title" id="profile-title">法人概要</h2>
 		</div>
 		<div class="company-grid">
@@ -64,7 +65,7 @@ get_header();
 			</dl>
 			<div class="card company-note">
 				<figure class="company-note-photo">
-					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/photos/company-meeting.webp' ); ?>" alt="社屋2階のミーティングスペース" width="1000" height="667" loading="lazy">
+					<img src="<?php echo esc_url( $tpl . '/assets/photos/company-meeting.webp' ); ?>" alt="社屋2階のミーティングスペース" width="1000" height="667" loading="lazy">
 				</figure>
 				<h3>地域と技術をつなぐ活動</h3>
 				<p>地域社会貢献活動、障害者支援、近隣小学校への寄付など、技術開発にとどまらない社会との接点も大切にしています。</p>
@@ -74,13 +75,18 @@ get_header();
 
 	<section class="section section--tight reveal" aria-labelledby="access-title">
 		<div class="sec-head">
-			<p class="sec-label">Access</p>
+			<p class="sec-label"><span class="en">Access</span></p>
 			<h2 class="sec-title" id="access-title">アクセス</h2>
 		</div>
 		<div class="access-panel card">
-			<figure class="access-map access-map--photo">
-				<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/photos/company-atrium.webp' ); ?>" alt="吹き抜けと螺旋階段のある社屋内観" width="1400" height="934" loading="lazy">
-			</figure>
+			<div class="access-map access-map--embed">
+				<iframe
+					src="https://www.google.com/maps?q=%E6%84%9B%E7%9F%A5%E7%9C%8C%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%B8%82%E8%A5%BF%E5%8C%BA%E7%AC%B9%E5%A1%9A%E7%94%BA2%E4%B8%81%E7%9B%AE10%E7%95%AA%E5%9C%B0&amp;z=16&amp;output=embed"
+					title="一般社団法人テクノサプライの地図（〒451-0077 愛知県名古屋市西区笹塚町2丁目10番地）"
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+					allowfullscreen></iframe>
+			</div>
 			<div class="access-copy">
 				<p class="access-kicker">Office Location</p>
 				<h3>一般社団法人 テクノサプライ</h3>
@@ -93,22 +99,44 @@ get_header();
 
 	<section class="section section--tight reveal" aria-labelledby="group-title">
 		<div class="sec-head">
-			<p class="sec-label">Group Company</p>
+			<p class="sec-label"><span class="en">Group Company</span></p>
 			<h2 class="sec-title" id="group-title">関連会社</h2>
 		</div>
 		<div class="group-companies">
 			<article class="card reveal" style="--delay:0">
-				<h3>株式会社 イシダテクノ</h3>
-				<span class="en">ISHIDATECNO</span>
+				<div class="group-head">
+					<div class="group-title">
+						<h3>株式会社 イシダテクノ</h3>
+						<span class="en">ISHIDATECNO</span>
+					</div>
+					<a class="group-qr" href="https://www.ishidatecno.co.jp" target="_blank" rel="noopener" title="公式サイトを開く">
+						<img src="<?php echo esc_url( $tpl . '/assets/qr/qr-ishida.png' ); ?>" alt="株式会社イシダテクノ公式サイトのQRコード" width="512" height="512" loading="lazy">
+					</a>
+				</div>
 				<dl>
 					<div><a href="https://www.ishidatecno.co.jp" target="_blank" rel="noopener">https://www.ishidatecno.co.jp</a></div>
 					<div>〒451-0077 愛知県名古屋市西区笹塚町2丁目10番地</div>
 					<div>TEL. 052-521-1110　FAX. 052-521-0064</div>
 				</dl>
+				<ul class="biz-tags" aria-label="事業領域">
+					<li style="--tag:#e0393f">計量</li>
+					<li style="--tag:#f08300">計数</li>
+					<li style="--tag:#d8b400">包装</li>
+					<li style="--tag:#43a047">検査</li>
+					<li style="--tag:#2bb3d8">搬送</li>
+					<li style="--tag:#7a6fe0">システム</li>
+				</ul>
 			</article>
 			<article class="card reveal" style="--delay:.1s">
-				<h3>株式会社 テクノリサーチ</h3>
-				<span class="en">TECNO RESEARCH</span>
+				<div class="group-head">
+					<div class="group-title">
+						<h3>株式会社 テクノリサーチ</h3>
+						<span class="en">TECNO RESEARCH</span>
+					</div>
+					<a class="group-qr" href="https://tecno-research.com" target="_blank" rel="noopener" title="公式サイトを開く">
+						<img src="<?php echo esc_url( $tpl . '/assets/qr/qr-tecno-research.png' ); ?>" alt="株式会社テクノリサーチ公式サイトのQRコード" width="512" height="512" loading="lazy">
+					</a>
+				</div>
 				<dl>
 					<div><a href="https://tecno-research.com" target="_blank" rel="noopener">https://tecno-research.com</a></div>
 					<div>本社　〒451-0077 愛知県名古屋市西区笹塚町2丁目10番地<br>TEL. 052-521-1220　FAX. 052-521-1126</div>
@@ -116,8 +144,15 @@ get_header();
 				</dl>
 			</article>
 			<article class="card reveal" style="--delay:.2s">
-				<h3>株式会社 トライネット</h3>
-				<span class="en">TRYNET</span>
+				<div class="group-head">
+					<div class="group-title">
+						<h3>株式会社 トライネット</h3>
+						<span class="en">TRYNET</span>
+					</div>
+					<a class="group-qr" href="https://trynet.co.jp" target="_blank" rel="noopener" title="公式サイトを開く">
+						<img src="<?php echo esc_url( $tpl . '/assets/qr/qr-trynet.png' ); ?>" alt="株式会社トライネット公式サイトのQRコード" width="512" height="512" loading="lazy">
+					</a>
+				</div>
 				<dl>
 					<div><a href="https://trynet.co.jp" target="_blank" rel="noopener">https://trynet.co.jp</a></div>
 					<div>〒452-0001 愛知県清須市西枇杷島町古城2丁目24番4</div>
@@ -129,7 +164,7 @@ get_header();
 
 	<section class="section section--tight reveal" aria-labelledby="activity-title">
 		<div class="sec-head">
-			<p class="sec-label">Activity</p>
+			<p class="sec-label"><span class="en">Activity</span></p>
 			<h2 class="sec-title" id="activity-title">活動実績</h2>
 		</div>
 		<div class="activity-grid">

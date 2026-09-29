@@ -22,17 +22,17 @@
 			<h3>Site Map</h3>
 			<div class="footer-nav-cols">
 				<nav class="footer-nav" aria-label="フッターナビゲーション 1">
-					<?php rd_nav_link( '', 'トップ' ); ?>
-					<a href="<?php echo esc_url( home_url( '/#concept' ) ); ?>">基本コンセプト</a>
-					<a href="<?php echo esc_url( home_url( '/#features' ) ); ?>">事業の強み</a>
-					<?php rd_nav_link( 'engineer', 'エンジニアメリット' ); ?>
-					<?php rd_nav_link( 'recruit', 'エンジニア募集要項' ); ?>
+					<?php
+					rd_nav_link( '', 'トップ' );
+					rd_nav_link( 'news', 'ニュース' );
+					rd_nav_link( 'engineer', 'エンジニアメリット' );
+					rd_nav_link( 'recruit', 'エンジニア募集要項' );
+					?>
 				</nav>
 				<nav class="footer-nav" aria-label="フッターナビゲーション 2">
 					<?php
 					rd_nav_link( 'investor', '投資企業メリット' );
 					rd_nav_link( 'projects', 'プロジェクト事例紹介' );
-					rd_nav_link( 'news', 'ニュース' );
 					rd_nav_link( 'faq', 'よくある質問' );
 					rd_nav_link( 'company', '法人情報' );
 					rd_nav_link( 'contact', 'お問い合わせ' );
@@ -43,7 +43,7 @@
 	</div>
 	<div class="footer-actions" aria-label="参加・お問い合わせ">
 		<a href="<?php echo esc_url( home_url( '/recruit/' ) ); ?>"><span>Engineer Entry</span>エンジニア募集を見る <b>→</b></a>
-		<a href="<?php echo esc_url( add_query_arg( 'type', 'investor', home_url( '/contact/' ) ) ); ?>"><span>Investor Contact</span>投資企業として相談 <b>→</b></a>
+		<a href="<?php echo esc_url( home_url( '/contact/?type=investor' ) ); ?>"><span>Investor Contact</span>投資企業として相談 <b>→</b></a>
 		<a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><span>General Contact</span>お問い合わせ <b>→</b></a>
 	</div>
 	<div class="footer-bottom">
@@ -54,7 +54,7 @@
 				rd_nav_link( 'terms', 'ご利用規約' );
 				?>
 			</div>
-			<p>© <?php echo esc_html( gmdate( 'Y' ) ); ?> 一般社団法人テクノサプライ R&amp;D コンソーシアム</p>
+			<p>© 一般社団法人テクノサプライ R&amp;D コンソーシアム</p>
 		</div>
 	</div>
 </footer>

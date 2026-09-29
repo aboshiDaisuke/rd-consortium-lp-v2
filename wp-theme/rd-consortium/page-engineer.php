@@ -1,47 +1,119 @@
 <?php
-/** エンジニア参加メリット（スラッグ: engineer） */
+/**
+ * エンジニアメリット（スラッグ: engineer）
+ *
+ * @package rd-consortium
+ */
+
 get_header();
+$tpl = get_template_directory_uri();
 ?>
+
 <main id="main">
 	<div class="page-hero">
 		<p class="breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">トップ</a> / エンジニアメリット</p>
-		<p class="page-hero-eyebrow">Engineer<span class="jp">エンジニアメリット</span></p>
+		<p class="page-hero-eyebrow">エンジニアメリット<span class="en">Engineer</span></p>
 		<h1>経験と技術を、<br>次のプロジェクトへ。</h1>
 		<p>本業を持つエンジニアや定年退職した技術者が、<br>空き時間と専門性を活かして研究開発に参加できる仕組みです。</p>
 	</div>
+
 	<section class="section reveal">
 		<div class="investor-panel">
-			<div><h2>異分野の仲間と、実需のあるテーマに挑戦する</h2><p>投資企業から寄せられた現場課題を起点に、プロジェクトごとにチームを編成します。自社の枠を越えた技術交流を通じて、スキルを磨きながら新しい製品・技術の創出に関われます。</p></div>
-			<ol class="flow-list"><li>募集要項を確認</li><li>エントリー</li><li>スキル・条件確認</li><li>プロジェクト参画</li><li>成果に応じた還元</li></ol>
+			<div>
+				<h2>異分野の仲間と、実需のあるテーマに挑戦する</h2>
+				<p>投資企業から寄せられた現場課題を起点に、プロジェクトごとにチームを編成します。自社の枠を越えた技術交流を通じて、スキルを磨きながら新しい製品・技術の創出に関われます。</p>
+			</div>
+			<ol class="flow-list">
+				<li>募集要項を確認</li>
+				<li>エントリー</li>
+				<li>スキル・条件確認</li>
+				<li>プロジェクト参画</li>
+				<li>成果に応じた還元</li>
+			</ol>
 		</div>
 	</section>
+
 	<section class="section section--tight reveal" aria-label="開発の様子">
 		<figure class="photo-band photo-band--single">
-			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/photos/engineer-team.webp' ); ?>" alt="開発ルームで並んで設計に取り組むエンジニアたち" width="1400" height="934" loading="lazy">
+			<img src="<?php echo esc_url( $tpl . '/assets/photos/engineer-team.webp' ); ?>" alt="開発ルームで並んで設計に取り組むエンジニアたち" width="1400" height="934" loading="lazy">
 		</figure>
 	</section>
+
 	<section class="section section--tight reveal" aria-labelledby="merit-title">
-		<div class="sec-head"><p class="sec-label">Merit</p><h2 class="sec-title" id="merit-title">エンジニアとして参加するメリット</h2></div>
+		<div class="sec-head">
+			<p class="sec-label"><span class="en">Merit</span></p>
+			<h2 class="sec-title" id="merit-title">エンジニアとして参加するメリット</h2>
+		</div>
 		<div class="merit-grid">
-			<article class="card reveal"><h3>空き時間を活かせる</h3><p>就業時間外や休日を活用し、副業・業務委託として無理のない範囲で参画できます。</p></article>
+			<article class="card reveal" style="--delay:0"><h3>空き時間を活かせる</h3><p>就業時間外や休日を活用し、副業・業務委託として無理のない範囲で参画できます。</p></article>
 			<article class="card reveal" style="--delay:.1s"><h3>異分野の知見に触れられる</h3><p>異業種のエンジニアや外部専門家、産学連携チームと協働し、新しい視点を得られます。</p></article>
 			<article class="card reveal" style="--delay:.2s"><h3>成果が報酬につながる</h3><p>開発期間中の基本報酬に加え、事業化後は貢献度に応じた成果連動型の還元を想定しています。</p></article>
 		</div>
 	</section>
+
 	<section class="section section--tight reveal" aria-labelledby="style-title">
-		<div class="sec-head"><p class="sec-label">Work Style</p><h2 class="sec-title" id="style-title">経験を活かせる柔軟な参加スタイル</h2></div>
+		<div class="sec-head">
+			<p class="sec-label"><span class="en">Work Style</span></p>
+			<h2 class="sec-title" id="style-title">経験を活かせる柔軟な参加スタイル</h2>
+		</div>
 		<div class="job-detail">
 			<div class="card job-detail-block"><h3>本業をお持ちの方</h3><p>所属企業の副業規定を確認したうえで、平日夜間や休日を中心にプロジェクトへ参加できます。</p></div>
 			<div class="card job-detail-block"><h3>定年退職された技術者の方</h3><p>長年培った専門知識や現場経験を、次世代の研究開発や若手エンジニアとの協働に活かせます。</p></div>
-			<div class="card job-detail-block"><h3>専門領域を広げたい方</h3><p>専門性を発揮しながら、隣接分野への理解も深められます。</p></div>
+			<div class="card job-detail-block"><h3>専門領域を広げたい方</h3><p>案件ごとに必要な技術を持ち寄るため、専門性を発揮しながら隣接分野への理解も深められます。</p></div>
 		</div>
 	</section>
+
+	<section class="section section--tight reveal" aria-labelledby="strength-title">
+		<div class="sec-head">
+			<p class="sec-label"><span class="en">Strength</span></p>
+			<h2 class="sec-title" id="strength-title">エンジニアに関わる2つの強み</h2>
+		</div>
+		<div class="feature-list">
+			<article class="card feature-card reveal" style="--delay:0">
+				<div class="feature-head">
+					<span class="feature-num">01</span>
+					<h3>エンジニアのやる気を報酬に</h3>
+				</div>
+				<div class="feature-cols">
+					<div><small>特徴</small><p>スキルアップしながら報酬確保</p></div>
+					<div><small>強みの本質</small><p>就業時間外や休日を活用</p></div>
+				</div>
+				<p class="feature-band">開発者の副業支援制度</p>
+			</article>
+			<article class="card feature-card reveal" style="--delay:.06s">
+				<div class="feature-head">
+					<span class="feature-num">02</span>
+					<h3>成果連動型インセンティブ設計</h3>
+				</div>
+				<div class="feature-cols">
+					<div><small>特徴</small><p>起案者、技術者へ利益の還元</p></div>
+					<div><small>強みの本質</small><p>アイデアにも技術者にも報酬</p></div>
+				</div>
+				<p class="feature-band">知恵が資本化され、技術者の意欲向上</p>
+			</article>
+		</div>
+	</section>
+
 	<section class="section section--tight reveal" aria-label="仕事風景">
 		<div class="photo-band photo-band--duo">
-			<figure><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/photos/engineer-panel-assembly.webp' ); ?>" alt="制御盤を組み立てる技術者の手元" width="1200" height="800" loading="lazy"></figure>
-			<figure><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/photos/engineer-cad.webp' ); ?>" alt="CAD画面で回路設計を行うエンジニア" width="1200" height="800" loading="lazy"></figure>
+			<figure><img src="<?php echo esc_url( $tpl . '/assets/photos/engineer-panel-assembly.webp' ); ?>" alt="制御盤を組み立てる技術者の手元" width="1200" height="800" loading="lazy"></figure>
+			<figure><img src="<?php echo esc_url( $tpl . '/assets/photos/engineer-cad.webp' ); ?>" alt="CAD画面で回路設計を行うエンジニア" width="1200" height="800" loading="lazy"></figure>
 		</div>
 	</section>
-	<section class="section reveal"><div class="contact-panel" style="grid-template-columns:1fr;"><div><small>Recruit</small><h2>現在の募集要項を確認する</h2><p>募集職種、業務内容、応募資格、報酬の考え方をご確認のうえ、共通フォームからエントリーしてください。</p><div class="pill-row" style="margin-top:22px;"><a class="pill pill-primary" href="<?php echo esc_url( home_url( '/recruit/' ) ); ?>">募集要項を見る <span class="arrow-circle">→</span></a><a class="pill pill-outline" href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">よくある質問を見る <span class="arrow-circle">→</span></a></div></div></div></section>
+
+	<section class="section reveal">
+		<div class="contact-panel" style="grid-template-columns:1fr;">
+			<div>
+				<small>Recruit</small>
+				<h2>現在の募集要項を確認する</h2>
+				<p>募集職種、業務内容、応募資格、報酬の考え方をご確認のうえ、共通フォームからエントリーしてください。</p>
+				<div class="pill-row" style="margin-top:22px;">
+					<a class="pill pill-primary" href="<?php echo esc_url( home_url( '/recruit/' ) ); ?>">募集要項を見る <span class="arrow-circle">→</span></a>
+					<a class="pill pill-outline" href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">よくある質問を見る <span class="arrow-circle">→</span></a>
+				</div>
+			</div>
+		</div>
+	</section>
 </main>
+
 <?php get_footer(); ?>

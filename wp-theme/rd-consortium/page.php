@@ -1,6 +1,6 @@
 <?php
 /**
- * 汎用固定ページ（プライバシーポリシー・ご利用規約など）
+ * 汎用固定ページ（専用テンプレートの無い固定ページ）
  * 本文はブロックエディタの内容をそのまま表示する
  *
  * @package rd-consortium
@@ -16,8 +16,8 @@ get_header();
 			<h1><?php the_title(); ?></h1>
 		</div>
 
-		<section class="section">
-			<div class="post-body">
+		<section class="section reveal">
+			<div class="legal-body">
 				<?php the_content(); ?>
 			</div>
 		</section>

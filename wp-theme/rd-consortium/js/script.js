@@ -1,10 +1,160 @@
 (() => {
   "use strict";
 
+  // WordPress版: 3D背景モジュールはテーマの assets/js/ から読み込む（このファイルは js/ 配下）
+  const themeScriptSrc = document.currentScript ? document.currentScript.src : "";
+
   // JSが有効なときだけ .reveal を初期非表示にする（CSS側は .js .reveal で限定）
   document.documentElement.classList.add("js");
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // 背景動画（エコシステム / ステートメント帯 / 募集バナー）自動再生・低モーション対応
+  // ヒーロー動画（top1→top2→本編）は下の initHeroIntroSequence で個別に制御する
+  document.querySelectorAll(".ecosystem-video, .statement-video, .banner-video").forEach((video) => {
+    if (!(video instanceof HTMLVideoElement)) return;
+    if (prefersReducedMotion) {
+      video.pause();
+      video.removeAttribute("autoplay");
+      return;
+    }
+    const play = () => {
+      video.play().catch(() => {
+        /* autoplay ブロック時は poster のまま */
+      });
+    };
+    if (video.readyState >= 2) play();
+    else video.addEventListener("loadeddata", play, { once: true });
+  });
+
+  // ヒーロー動画：top1 → top2 → 本編 → top1 … の順に無限ループ
+  function initHeroIntroSequence() {
+    const intro1 = document.getElementById("hero-intro-1");
+    const intro2 = document.getElementById("hero-intro-2");
+    const main = document.getElementById("hero-main");
+    if (!intro1 || !intro2 || !main) return;
+
+    if (prefersReducedMotion) {
+      intro1.pause();
+      intro2.pause();
+      intro1.classList.remove("is-active");
+      main.classList.add("is-active");
+      main.removeAttribute("autoplay");
+      return;
+    }
+
+    const CROSSFADE_SEC = 0.9; // CSSのopacity transitionと合わせる
+
+    // 終端の少し手前で次の動画を先に再生開始し、重なった状態でフェードすることで
+    // 「切り替わった瞬間に止め絵→再生」のカクつきをなくす
+    const armCrossfade = (from, to) => {
+      let triggered = false;
+      const trigger = () => {
+        if (triggered) return;
+        triggered = true;
+        to.currentTime = 0;
+        to.play().catch(() => {
+          /* autoplay ブロック時はそのまま表示 */
+        });
+        from.classList.remove("is-active");
+        to.classList.add("is-active");
+      };
+      from.addEventListener("timeupdate", () => {
+        if (from.duration && from.currentTime >= from.duration - CROSSFADE_SEC) trigger();
+      });
+      from.addEventListener("ended", trigger);
+      // 次の周回で再び切り替えられるよう、先頭から再生され直したら再武装する
+      from.addEventListener("play", () => {
+        triggered = false;
+      });
+    };
+
+    armCrossfade(intro1, intro2);
+    armCrossfade(intro2, main);
+    armCrossfade(main, intro1); // 本編が終わったら1本目へ戻る
+
+    const startIntro1 = () => {
+      intro1.play().catch(() => {
+        /* 自動再生がブロックされた場合は本編へフォールバック */
+        intro1.classList.remove("is-active");
+        main.classList.add("is-active");
+        main.play().catch(() => {});
+      });
+    };
+    if (intro1.readyState >= 2) startIntro1();
+    else intro1.addEventListener("loadeddata", startIntro1, { once: true });
+  }
+  initHeroIntroSequence();
+
+  /* ============================================================
+     背景「氷の渦」— HAL名古屋風モザイク（吸い込みアニメ）
+     ============================================================ */
+  function buildIceVortex(target) {
+    const size = 1400;
+    const cx = size / 2;
+    const cy = size / 2;
+    const rings = 22;
+    const maxR = size / 2;
+    const maxTiles = 480;
+    let tiles = "";
+    let tileCount = 0;
+
+    for (let r = 1; r <= rings && tileCount < maxTiles; r += 1) {
+      const radius = (r / rings) * maxR;
+      const circumference = 2 * Math.PI * radius;
+      const tileSize = 6 + r * 1.1;
+      const count = Math.max(6, Math.floor(circumference / (tileSize * 2.2)));
+      const opacity = 0.1 + (r / rings) * 0.28;
+
+      for (let i = 0; i < count && tileCount < maxTiles; i += 1) {
+        const angle = (i / count) * Math.PI * 2 + r * 0.15;
+        const x = cx + Math.cos(angle) * radius;
+        const y = cy + Math.sin(angle) * radius;
+        const rot = (angle * 180) / Math.PI;
+        tiles += `<rect x="${(-tileSize / 2).toFixed(1)}" y="${(-tileSize / 2).toFixed(1)}" width="${tileSize.toFixed(1)}" height="${tileSize.toFixed(1)}" rx="${(tileSize * 0.22).toFixed(1)}" fill="#bdd6f5" opacity="${opacity.toFixed(2)}" transform="translate(${x.toFixed(1)},${y.toFixed(1)}) rotate(${rot.toFixed(1)})" />`;
+        tileCount += 1;
+      }
+    }
+
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}">${tiles}</svg>`;
+    target.style.backgroundImage = `url("data:image/svg+xml;utf8,${encodeURIComponent(svg)}")`;
+  }
+
+  function initMotionBackground() {
+    const root = document.querySelector(".motion-bg");
+    if (!root || root.dataset.enhanced === "1") return;
+    root.dataset.enhanced = "1";
+    root.innerHTML = "";
+
+    // 吸い込みループ用に同一渦を2層 + 逆回転1層
+    const vortexA = document.createElement("div");
+    vortexA.className = "motion-vortex motion-vortex--a";
+    const vortexB = document.createElement("div");
+    vortexB.className = "motion-vortex motion-vortex--b";
+    const vortexC = document.createElement("div");
+    vortexC.className = "motion-vortex motion-vortex--c";
+    root.appendChild(vortexA);
+    root.appendChild(vortexB);
+    root.appendChild(vortexC);
+    buildIceVortex(vortexA);
+    // 同じSVGを共有（再生成コストを避ける）
+    const bg = vortexA.style.backgroundImage;
+    vortexB.style.backgroundImage = bg;
+    vortexC.style.backgroundImage = bg;
+
+    // 中心へ収束する同心リング
+    const flowA = document.createElement("div");
+    flowA.className = "motion-flow";
+    const flowB = document.createElement("div");
+    flowB.className = "motion-flow motion-flow--b";
+    root.appendChild(flowA);
+    root.appendChild(flowB);
+
+    // 中心グロー
+    const core = document.createElement("div");
+    core.className = "motion-core";
+    root.appendChild(core);
+  }
 
   // ハンバーガーメニュー開閉
   const menuButton = document.querySelector(".menu-button");
@@ -48,7 +198,7 @@
 
   document.addEventListener("DOMContentLoaded", initReveal);
 
-  // トップページの構造数値を、表示時に一度だけカウントアップ
+  // 数値ブロックがあるページでは、表示時に一度だけカウントアップ
   function initStructureCounts() {
     const counters = document.querySelectorAll(".structure-number[data-count]");
     if (!counters.length) return;
@@ -71,13 +221,11 @@
         const target = Number(element.dataset.count || 0);
         const suffix = element.dataset.suffix || "";
         const startedAt = performance.now();
-        const duration = 900;
 
         const tick = (now) => {
-          const progress = Math.min((now - startedAt) / duration, 1);
+          const progress = Math.min((now - startedAt) / 900, 1);
           const eased = 1 - Math.pow(1 - progress, 3);
-          const current = Math.round(target * eased);
-          element.textContent = `${String(current).padStart(2, "0")}${suffix}`;
+          element.textContent = `${String(Math.round(target * eased)).padStart(2, "0")}${suffix}`;
           if (progress < 1) requestAnimationFrame(tick);
         };
 
@@ -89,36 +237,44 @@
     counters.forEach((counter) => observer.observe(counter));
   }
 
-  // 背景図形と巨大文字にごく弱い奥行きを加える
-  function initAmbientParallax() {
-    if (prefersReducedMotion) return;
-    const wires = document.querySelectorAll(".wire");
-    const heroGiant = document.querySelector(".hero-giant");
-    if (!wires.length && !heroGiant) return;
+  // Three.js版の渦銀河背景を優先し、不可ならCSS渦へフォールバック
+  function initMotionBackground3D() {
+    const root = document.querySelector(".motion-bg");
+    if (!root || root.dataset.enhanced === "1") return;
 
-    let queued = false;
-    const update = () => {
-      const scrollY = window.scrollY;
-      wires.forEach((wire, index) => {
-        const rate = 0.018 + index * 0.012;
-        wire.style.translate = `0 ${Math.round(scrollY * rate)}px`;
-      });
-      if (heroGiant instanceof HTMLElement) {
-        heroGiant.style.translate = `0 ${Math.round(scrollY * 0.035)}px`;
+    const supportsWebGL = () => {
+      try {
+        const canvas = document.createElement("canvas");
+        return Boolean(canvas.getContext("webgl2") || canvas.getContext("webgl"));
+      } catch (e) {
+        return false;
       }
-      queued = false;
     };
 
-    window.addEventListener("scroll", () => {
-      if (queued) return;
-      queued = true;
-      requestAnimationFrame(update);
-    }, { passive: true });
-    update();
+    if (prefersReducedMotion || !supportsWebGL()) {
+      initMotionBackground();
+      return;
+    }
+
+    root.dataset.enhanced = "1";
+    root.innerHTML = "";
+    import(new URL("../assets/js/motion-bg-3d.js", themeScriptSrc || window.location.href).href)
+      .then((mod) => {
+        if (!mod.initMotionBg3D(root)) {
+          root.dataset.enhanced = "";
+          initMotionBackground();
+        }
+      })
+      .catch(() => {
+        root.dataset.enhanced = "";
+        initMotionBackground();
+      });
   }
 
-  document.addEventListener("DOMContentLoaded", initStructureCounts);
-  document.addEventListener("DOMContentLoaded", initAmbientParallax);
+  document.addEventListener("DOMContentLoaded", () => {
+    initMotionBackground3D();
+    initStructureCounts();
+  });
 
   // 共通フォーム：タブ切り替え + URLパラメータ(type/subject)からの初期状態設定
   const contactTablist = document.querySelector(".contact-tabs");
@@ -141,6 +297,7 @@
       tab.addEventListener("click", () => activateTab(tab.dataset.contactTab));
     });
 
+    // 左右矢印キーでタブを移動できるようにする
     contactTablist.addEventListener("keydown", (event) => {
       if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
       const currentIndex = tabs.findIndex((tab) => tab.getAttribute("aria-selected") === "true");
@@ -150,12 +307,14 @@
       event.preventDefault();
     });
 
+    // 導線元に応じた初期タブ（?type=inquiry / investor / engineer、互換性で other も inquiry 扱い）
     const params = new URLSearchParams(window.location.search);
     let requestedType = params.get("type");
     if (requestedType === "other") requestedType = "inquiry";
     const hasType = tabs.some((tab) => tab.dataset.contactTab === requestedType);
     activateTab(hasType ? requestedType : "inquiry");
 
+    // 対象の募集・プロジェクト名の引き継ぎ（?subject=）
     const subject = params.get("subject");
     if (subject) {
       const subjectLabels = {

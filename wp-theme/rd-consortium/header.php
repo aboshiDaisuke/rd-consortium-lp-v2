@@ -24,15 +24,6 @@
 <a class="skip-link" href="#main"><?php esc_html_e( '本文へスキップ', 'rd-consortium' ); ?></a>
 
 <header class="site-header">
-	<div class="header-meta" aria-label="補助リンク">
-		<?php
-		rd_nav_link( 'investor', '投資企業メリット' );
-		rd_nav_link( 'engineer', 'エンジニアメリット' );
-		rd_nav_link( 'faq', 'よくある質問' );
-		rd_nav_link( 'company', '法人情報' );
-		rd_nav_link( 'contact', 'お問い合わせ' );
-		?>
-	</div>
 	<div class="header-main">
 		<a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="R&D コンソーシアム トップ">
 			<span class="brand-mark">R&D</span><span class="brand-city">コンソーシアム</span>
@@ -41,20 +32,23 @@
 			<span></span><span></span><span></span>
 		</button>
 		<nav id="global-nav" class="global-nav" aria-label="グローバルナビゲーション">
-			<?php rd_nav_link( '', 'トップ' ); ?>
-			<a href="<?php echo esc_url( home_url( '/#concept' ) ); ?>">基本コンセプト</a>
 			<?php
+			rd_nav_link( '', 'トップ' );
+			rd_nav_link( 'news', 'ニュース' );
 			rd_nav_link( 'engineer', 'エンジニア' );
+			rd_nav_link( 'recruit', '募集要項' );
 			rd_nav_link( 'investor', '投資企業' );
 			rd_nav_link( 'projects', '事例紹介' );
-			rd_nav_link( 'news', 'ニュース' );
+			rd_nav_link( 'faq', 'よくある質問' );
+			rd_nav_link( 'company', '法人情報' );
+			rd_nav_link( 'contact', 'お問い合わせ' );
 			?>
 		</nav>
 	</div>
 </header>
 
 <aside class="side-cta" aria-label="固定リンク">
-	<a class="side-cta-primary" href="<?php echo esc_url( add_query_arg( array( 'type' => 'engineer', 'subject' => 'rd-engineer' ), home_url( '/contact/' ) ) ); ?>">エンジニア<br>応募</a>
-	<a href="<?php echo esc_url( add_query_arg( 'type', 'investor', home_url( '/contact/' ) ) ); ?>">投資企業<br>相談</a>
+	<a class="side-cta-primary" href="<?php echo esc_url( home_url( '/recruit/' ) ); ?>">エンジニア<br>応募</a>
+	<a href="<?php echo esc_url( home_url( '/contact/?type=investor' ) ); ?>">投資企業<br>相談</a>
 	<a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">お問い合わせ</a>
 </aside>
