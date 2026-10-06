@@ -86,7 +86,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
   outline-offset: 3px;
   border-radius: 4px;
 }
-.pill-primary:focus-visible, .pill-dark:focus-visible, .side-cta-primary:focus-visible {
+.pill-primary:focus-visible, .pill-dark:focus-visible {
   outline-color: #ffffff;
   box-shadow: 0 0 0 6px rgba(45, 93, 200, 0.5);
 }
@@ -418,18 +418,12 @@ main, .site-footer { position: relative; z-index: 1; }
 .side-cta a:hover { transform: translateX(-3px); }
 .side-cta a:first-child { border-radius: 16px 0 0 0; }
 .side-cta a:last-child { border-radius: 0 0 0 16px; }
-.side-cta-primary {
-  color: #fff !important;
-  background: linear-gradient(160deg, #2d3a7c, #565eaa) !important;
-  border-color: transparent !important;
-}
-/* マウスを乗せる／キーボードで選ぶと色が付く（グラデはopacityでふわっと切り替え） */
+/* 3つとも普段は白、マウスを乗せる／キーボードで選ぶと色が付く（グラデはopacityでふわっと切り替え） */
 .side-cta a::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
   background: linear-gradient(160deg, #2d3a7c, #565eaa);
   opacity: 0; transition: opacity .25s;
 }
-.side-cta a.side-cta-primary::before { background: linear-gradient(160deg, #3a47b0, #6a52cc); }
 .side-cta a:hover, .side-cta a:focus-visible { color: #fff; border-color: transparent; background-color: #2d3a7c; }
 .side-cta a:hover::before, .side-cta a:focus-visible::before { opacity: 1; }
 
