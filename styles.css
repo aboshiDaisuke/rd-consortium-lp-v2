@@ -411,10 +411,11 @@ main, .site-footer { position: relative; z-index: 1; }
   border: 1px solid rgba(86, 94, 170, 0.25); border-right: 0;
   color: var(--primary-deep);
   font-size: 14px; font-weight: 700; text-align: center; line-height: 1.5;
-  transition: background .2s, transform .25s var(--ease-out);
+  transition: background .2s, color .25s, border-color .25s, transform .25s var(--ease-out);
   box-shadow: -6px 10px 30px rgba(28, 34, 78, 0.10);
+  position: relative; isolation: isolate; overflow: hidden;
 }
-.side-cta a:hover { transform: translateX(-3px); background: #fff; }
+.side-cta a:hover { transform: translateX(-3px); }
 .side-cta a:first-child { border-radius: 16px 0 0 0; }
 .side-cta a:last-child { border-radius: 0 0 0 16px; }
 .side-cta-primary {
@@ -422,6 +423,15 @@ main, .site-footer { position: relative; z-index: 1; }
   background: linear-gradient(160deg, #2d3a7c, #565eaa) !important;
   border-color: transparent !important;
 }
+/* マウスを乗せる／キーボードで選ぶと色が付く（グラデはopacityでふわっと切り替え） */
+.side-cta a::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(160deg, #2d3a7c, #565eaa);
+  opacity: 0; transition: opacity .25s;
+}
+.side-cta a.side-cta-primary::before { background: linear-gradient(160deg, #3a47b0, #6a52cc); }
+.side-cta a:hover, .side-cta a:focus-visible { color: #fff; border-color: transparent; background-color: #2d3a7c; }
+.side-cta a:hover::before, .side-cta a:focus-visible::before { opacity: 1; }
 
 /* ============================================================
    ボタン / ピル
