@@ -1368,6 +1368,9 @@ textarea { resize: vertical; }
 }
 .form-privacy-agree input { width: 17px; height: 17px; margin-top: 2px; flex-shrink: 0; accent-color: var(--primary); cursor: pointer; }
 .form-privacy-agree a { color: var(--primary); text-decoration: underline; }
+/* ロボット確認（Cloudflare Turnstile）の欄。読み込み中も高さを確保して送信ボタンが動かないようにする */
+.form-turnstile { min-height: 65px; margin-top: 2px; }
+.form-turnstile[data-size="compact"] { min-height: 140px; }
 .text-red { color: #d93025; font-weight: inherit; }
 
 .tel-block { display: grid; justify-items: center; gap: 6px; padding: clamp(30px, 5vw, 44px); text-align: center; }

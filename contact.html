@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=hal-type-4">
+    <link rel="stylesheet" href="styles.css?v=hal-type-5">
   </head>
   <body>
     <div class="motion-bg" aria-hidden="true">
@@ -121,6 +121,8 @@
                   <input type="checkbox" name="privacy_agree" required>
                   <span><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意の上、送信します。</span>
                 </label>
+                <!-- ロボット確認（Cloudflare Turnstile）: 確認用のためテスト用キー。本番はWordPress版で正式なキーに差し替える -->
+                <div class="cf-turnstile form-turnstile" data-sitekey="1x00000000000000000000AA" data-language="ja"></div>
                 <button class="pill pill-primary" type="button">送信内容を確認する <span class="arrow-circle">→</span></button>
               </form>
             </div>
@@ -183,6 +185,8 @@
                   <input type="checkbox" name="privacy_agree" required>
                   <span><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意の上、送信します。</span>
                 </label>
+                <!-- ロボット確認（Cloudflare Turnstile）: 確認用のためテスト用キー。本番はWordPress版で正式なキーに差し替える -->
+                <div class="cf-turnstile form-turnstile" data-sitekey="1x00000000000000000000AA" data-language="ja"></div>
                 <button class="pill pill-primary" type="button">送信内容を確認する <span class="arrow-circle">→</span></button>
               </form>
             </div>
@@ -211,6 +215,8 @@
                   <input type="checkbox" name="privacy_agree" required>
                   <span><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意の上、送信します。</span>
                 </label>
+                <!-- ロボット確認（Cloudflare Turnstile）: 確認用のためテスト用キー。本番はWordPress版で正式なキーに差し替える -->
+                <div class="cf-turnstile form-turnstile" data-sitekey="1x00000000000000000000AA" data-language="ja"></div>
                 <button class="pill pill-primary" type="button">送信内容を確認する <span class="arrow-circle">→</span></button>
               </form>
             </div>
@@ -274,6 +280,13 @@
       </div>
     </footer>
 
+    <script>
+      // Turnstile の欄は通常300px幅。狭い画面ではフォームからはみ出すので縦長の compact 版にする
+      document.querySelectorAll(".cf-turnstile").forEach((el) => {
+        el.dataset.size = window.matchMedia("(max-width: 420px)").matches ? "compact" : "normal";
+      });
+    </script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script src="script.js"></script>
   </body>
 </html>
