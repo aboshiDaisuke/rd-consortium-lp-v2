@@ -669,7 +669,7 @@ main, .site-footer { position: relative; z-index: 1; }
   color: rgba(255,255,255,.95);
 }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
-.hero-actions .pill { min-width: 225px; }
+.hero-actions .pill { min-width: 225px; text-shadow: none; }
 
 /* ============================================================
    PRODUCT 基本コンセプト
